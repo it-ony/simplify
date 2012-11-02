@@ -1,10 +1,57 @@
 <?xml version="1.0"?>
 <app:SimplifyClass xmlns="http://www.w3.org/1999/xhtml"
-               xmlns:js="js.core" xmlns:ui="js.ui" xmlns:app="app">
-    <div class="container">
-        <h1>Congratulations</h1>
-        <p>
-            Your Application "{appName}" is running!
-        </p>
-    </div>
+                   xmlns:js="js.core" xmlns:ui="js.ui" xmlns:app="app" xmlns:data="sprd.data" xmlns:coreData="js.data"
+                   xmlns:conf="js.conf" xmlns:piwik="piwik" xmlns:analytics="google.analytics" xmlns:sprdUtil="sprd.util">
+
+    <js:Injection cid="injection">
+        <data:SprdApiDataSource cid="api" gateway="api/v1" endPoint="http://api.spreadshirt.net/api/v1" apiKey="2b065dd3-88b7-44a8-87fe-e564ed27f904"/>
+        <coreData:LocalStorage/>
+        <!--<analytics:PageTracker account="UA-24747471-9" cid="tracking"/>-->
+        <js:I18n cid="i18n" path="app/locale" locale="en" loadMomentJs="false"/>
+    </js:Injection>
+
+    <sprdUtil:LocaleService cid="localeService"/>
+
+    <js:Router cid="router">
+        <conf:RouteConfiguration name="default" route="^$" onexec="defaultRoute"/>
+    </js:Router>
+
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="brand" href="#">Simplify</a>
+                    <div class="nav-collapse collapse">
+                        <p class="navbar-text pull-right">
+                            Logged in as
+                            <a href="#" class="navbar-link">Username</a>
+                        </p>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <div class="span2" id="sidebar">
+                </div>
+                <div class="span10">
+                    <js:ModuleLoader router="{router}" id="content">
+                        <conf:ModuleConfiguration name="home" moduleClass="app.module.Home" route="^home.*$"/>
+                        <!--<conf:ModuleConfiguration name="collection" moduleClass="app.module.Collection" route="^collection.*$"/>-->
+                        <!--<conf:ModuleConfiguration name="collection" moduleClass="app.module.Statistic" route="^statistic.*$"/>-->
+                        <!--<conf:ModuleConfiguration name="pos" moduleClass="app.module.Pos" route="^pos.*$"/>-->
+                        <!--<conf:ModuleConfiguration name="design" moduleClass="app.module.Design" route="^design.*$"/>-->
+
+                        <ui:ContentPlaceHolder name="main" id="main" class="row-fluid"/>
+                        <ui:ContentPlaceHolder name="footer" id="footer" class="row-fluid"/>
+                    </js:ModuleLoader>
+                </div>
+
+            </div>
+        </div>
+    </body>
+
 </app:SimplifyClass>

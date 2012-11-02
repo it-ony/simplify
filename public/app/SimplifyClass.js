@@ -19,7 +19,11 @@ define(
                 this.callBase(parameter, false);
 
                 callback();
-            }
+            },
+
+            defaultRoute: function (routeContext) {
+                routeContext.router.navigate("home", routeContext.callback);
+            }.async()
         });
     }
 );
