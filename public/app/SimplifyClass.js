@@ -46,13 +46,17 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
                             session.login(parameter.username, parameter.password, cb);
                         }
                     })
-                    .par(function (cb) {
+                    .seq(function (cb) {
+                        session.$.user.fetch(null, function (err, user) {
+                            console.log(user, session.$.user, user === session.$.user);
+                            cb(err);
+                        });
+                    })
+                    .seq(function (cb) {
                         self.set("user", session.$.user);
                         session.$.user.$.shops.fetch({
                             fullData: true
                         }, cb);
-                    }, function(cb) {
-                        session.$.user.fetch(null, cb);
                     })
                     .exec(function(err) {
                         if (err) {
@@ -64,7 +68,7 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
                             // call start from super
                             self.start.baseImplementation.call(self, parameter, callback);
                         }
-                    });
+                    })
 
             },
 
