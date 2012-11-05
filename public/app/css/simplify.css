@@ -1,0 +1,84 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.app {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#container {
+    position: absolute;
+    width: 100%;
+    top: 45px;
+    bottom: 0;
+}
+
+#sidebar {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 15%;
+
+    background: #2d2e34;
+    color: white;
+}
+
+#sidebar > ul > li {
+    padding: 10px;
+    color: #555555;
+}
+
+#sidebar li {
+    padding: 2px 0;
+}
+
+#sidebar > ul > li > ul {
+    margin: 10px;
+}
+
+#sidebar li > a {
+    color: #e7e7e7;
+    display: block;
+}
+
+#sidebar i {
+    margin-right: 5px;
+}
+
+#content {
+    position: absolute;
+    left: 15%;
+    width: 85%;
+    height: 100%;
+    background: #eeeeee;
+    border-left: 1px solid black;
+}
+
+#main {
+    padding: 10px 30px;
+    position: absolute;
+    top: 0;
+    bottom: 43px;
+    overflow: auto;
+}
+
+#footer {
+    position: absolute;
+    height: 43px;
+    bottom: 0;
+    overflow: hidden;
+    border-top: 1px solid black;
+    background: #545454;
+}
+
+#sidebar .badge {
+    background: #1b1c1f;
+    position: absolute;
+    right: 10px;
+}
+
+
