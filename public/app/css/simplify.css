@@ -62,8 +62,11 @@ html, body {
     padding: 10px 30px;
     position: absolute;
     top: 0;
+    left: 0;
+    right: 0;
     bottom: 43px;
     overflow: auto;
+    box-sizing: border-box;
 }
 
 #footer {
@@ -81,4 +84,52 @@ html, body {
     right: 10px;
 }
 
+/*** IMAGE UPLOAD ***/
+.image-upload {
+    background: #2c2e34;
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 170px;
+    max-height: 340px;
+    overflow: auto;
+    position: relative;
+}
 
+.image-upload .upload-notice {
+    text-align: center;
+    color: #E7E7E7;
+    font-size: 24px;
+    line-height: 100px;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    width: 90%;
+    left: 50%;
+    margin-left: -45%;
+}
+
+.image-upload ul {
+    margin: 0;
+}
+
+.image-upload li {
+    float: left;
+    margin: 10px;
+    background: #F9F9F9;
+    padding: 5px 100px 20px 5px;
+    border-radius: 5px;
+}
+
+.image-upload .image-container {
+    height: 122px;
+    width: 122px;
+}
+
+.image-upload img {
+    border-radius: 5px;
+    border: 1px solid gray;
+    vertical-align: middle;
+    max-width: 120px;
+    max-height: 120px;
+    box-shadow: 1px 1px 2px #888;
+}
