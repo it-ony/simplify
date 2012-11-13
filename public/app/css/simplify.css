@@ -133,3 +133,36 @@ html, body {
     max-height: 120px;
     box-shadow: 1px 1px 2px #888;
 }
+
+.panel {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.row-fluid.panel + .row-fluid.panel {
+    margin-top: 30px;
+}
+
+#create .create .buttons {
+    text-align: right;
+}
+
+#create .create .buttons > * {
+    margin-left: 10px;
+}
+
+#create .tab-view {
+    margin-top: 30px;
+}
+
+.tab-view .nav-tabs {
+    margin: 0 10px;
+}
+
+.tab-view .tab-content {
+    background: white;
+    padding: 10px;
+    border-radius: 4px 4px 10px 10px;
+}
