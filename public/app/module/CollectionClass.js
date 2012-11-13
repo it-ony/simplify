@@ -10,6 +10,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Shop", "flow"
         },
 
         showCollection: function(routeContext, collectionId) {
+
             var api = this.$.api,
                 collection = api.createEntity(Shop, collectionId);
 

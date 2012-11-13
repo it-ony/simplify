@@ -6,7 +6,7 @@
     Visit http://rappidjs.com for more Information.
     -->
     <link rel="stylesheet" type="text/css" href="app/css/bootstrap.css" media="all">
-    <link rel="stylesheet" type="text/css" href="app/css/bootstrap-responsive.css" media="all">
+    <!--<link rel="stylesheet" type="text/css" href="app/css/bootstrap-responsive.css" media="all">-->
     <link rel="stylesheet" type="text/css" href="app/css/simplify.css" media="all">
 
     <title>Simplify</title>
@@ -24,7 +24,10 @@
 </head>
 <body>
 <script type="text/javascript" data-usage="bootstrap">
-    rAppid.bootStrap("app/Simplify.xml");
+    rAppid.bootStrap("app/Simplify.xml", document.body, {
+        username: "qa-premium",
+        password: "preseachalor"
+    });
 </script>
 </body>
 </html>

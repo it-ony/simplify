@@ -61,6 +61,9 @@
                             <li class="designs">
                                 <a href="design">Designs</a>
                             </li>
+                            <li class="create">
+                                <a href="create">Create</a>
+                            </li>
                             <li class="point-of-sales">
                                 <a href="pos"><i class="icon-shopping-cart icon-white"/>Point of sales</a>
                             </li>
@@ -90,6 +93,7 @@
                 <conf:ModuleConfiguration name="statistic" moduleClass="app.module.Statistic" route="^statistic.*$"/>
                 <conf:ModuleConfiguration name="pos" moduleClass="app.module.Pos" route="^pos.*$"/>
                 <conf:ModuleConfiguration name="design" moduleClass="app.module.Design" route="^design.*$"/>
+                <conf:ModuleConfiguration name="create" moduleClass="app.module.Create" route="^create.*$"/>
 
                 <ui:ContentPlaceHolder name="main" id="main" class="row-fluid"/>
                 <ui:ContentPlaceHolder name="footer" id="footer" class="row-fluid"/>
