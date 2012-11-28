@@ -18,8 +18,7 @@
                 <sprdView:ImageUpload notice="Drop your files here."/>
             </div>
             <input type="text" class="pull-right search-query" placeholder="Search"
-                   cid="searchInput"
-                   value="{searchTerm}"/>
+                   cid="searchInput" value="{searchTerm}"/>
         </div>
         <div class="design-container">
             <ui:TileList class="design-tile-list"
