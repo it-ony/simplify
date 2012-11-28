@@ -4,7 +4,10 @@
                    xmlns:conf="js.conf" xmlns:sprdUtil="sprd.util" class="app">
 
     <js:Injection cid="injection">
-        <data:SprdApiDataSource cid="api" gateway="api/v1" endPoint="http://api.spreadshirt.net/api/v1" apiKey="2b065dd3-88b7-44a8-87fe-e564ed27f904"/>
+        <data:SprdApiDataSource cid="api" gateway="api/v1"
+                                endPoint="http://api.spreadshirt.net/api/v1"
+                                apiKey="2b065dd3-88b7-44a8-87fe-e564ed27f904"
+                                secret="51616615-0bb1-471e-93f5-fe19022049ef"/>
         <coreData:LocalStorage/>
         <data:ImageService endPoint="//image.spreadshirt.net/image-server/v1"/>
         <!--<analytics:PageTracker account="UA-24747471-9" cid="tracking"/>-->

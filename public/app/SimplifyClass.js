@@ -47,6 +47,7 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
                         }
                     })
                     .seq(function (cb) {
+                        api.set('session', session);
                         session.$.user.fetch(null, function (err, user) {
                             console.log(user, session.$.user, user === session.$.user);
                             cb(err);
