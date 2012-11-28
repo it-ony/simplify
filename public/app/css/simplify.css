@@ -89,8 +89,8 @@ html, body {
     background: #2c2e34;
     padding: 10px;
     border-radius: 5px;
-    min-height: 170px;
-    max-height: 340px;
+    min-height: 80px;
+    max-height: 200px;
     overflow: auto;
     position: relative;
 }
@@ -98,7 +98,7 @@ html, body {
 .image-upload .upload-notice {
     text-align: center;
     color: #E7E7E7;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 100px;
     position: absolute;
     top: 50%;
@@ -165,4 +165,20 @@ html, body {
     background: white;
     padding: 10px;
     border-radius: 4px 4px 10px 10px;
+}
+
+.design-container {
+    position: absolute;
+    top: 180px;
+    bottom: 0;
+    right: 30px;
+    left: 30px;
+}
+
+.design-tile-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
