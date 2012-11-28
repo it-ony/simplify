@@ -8,16 +8,35 @@
     <js:Content name="main">
         <div class="row-fluid">
             <div class="span12">
+                <ui:TabView>
+                    <ui:Tab title="tiles">
+                        <ui:TileList cid="articleList" id="articleList" class="articles"
+                                     heightUpdatePolicy="in" data="{collection.articles}" height="100"
+                                     widthUpdatePolicy="in" itemWidth="100" itemHeight="100" horizontalGap="15"
+                                     verticalGap="50" cols="5" prefetchItemCount="6">
+                            <js:Template name="renderer">
+                                <sprdView:ArticleImage class="composition" article="{$dataItem.data}" type="composition"
+                                                       width="150" height="150"/>
+                            </js:Template>
+                        </ui:TileList>
+                    </ui:Tab>
+                    <ui:Tab title="table">
+                        <ui:DataGrid data="{collection.articles}" selectionMode="single">
+                            <ui:DataGridColumn title="name" path="name"/>
+                            <ui:DataGridColumn title="id" path="id"/>
+                            <ui:DataGridColumn title="picture">
+                                <js:Template name="cell">
+                                    <sprdView:ArticleImage class="composition" article="{$dataItem.data}"
+                                                           type="composition"
+                                                           width="50" height="50"/>
+                                </js:Template>
+                            </ui:DataGridColumn>
 
-                <ui:TileList cid="articleList" id="articleList" class="articles"
-                             heightUpdatePolicy="in" data="{collection.articles}" height="100"
-                             widthUpdatePolicy="in" itemWidth="100" itemHeight="100" horizontalGap="15"
-                             verticalGap="50" cols="5" prefetchItemCount="6">
-                    <js:Template name="renderer">
-                        <sprdView:ArticleImage class="composition" article="{$dataItem.data}" type="composition"
-                                               width="150" height="150"/>
-                    </js:Template>
-                </ui:TileList>
+                        </ui:DataGrid>
+                    </ui:Tab>
+
+                </ui:TabView>
+
             </div>
         </div>
     </js:Content>
