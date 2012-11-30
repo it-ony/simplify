@@ -14,7 +14,7 @@
         </div>
         <div class="row-fluid">
             <div class="span12">
-                <sprdView:ImageUpload notice="Drop your files here."/>
+                <sprdView:ImageUpload notice="Drop your files here." uploadContext="{user}"/>
             </div>
         </div>
         <div class="design-container">
