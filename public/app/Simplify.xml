@@ -96,7 +96,7 @@
                 <conf:ModuleConfiguration name="collection" moduleClass="app.module.Collection" route="^collection.*$"/>
                 <conf:ModuleConfiguration name="statistic" moduleClass="app.module.Statistic" route="^statistic.*$"/>
                 <conf:ModuleConfiguration name="pos" moduleClass="app.module.Pos" route="^pos.*$"/>
-                <conf:ModuleConfiguration name="design" moduleClass="app.module.Design" route="^design.*$"/>
+                <conf:ModuleConfiguration name="design" moduleClass="app.module.DesignModule" route="^design.*$"/>
                 <conf:ModuleConfiguration name="create" moduleClass="app.module.Create" route="^create.*$"/>
 
                 <ui:ContentPlaceHolder name="main" id="main" class="row-fluid"/>
