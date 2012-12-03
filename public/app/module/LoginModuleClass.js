@@ -57,6 +57,8 @@ define(['js/core/Module', "js/core/I18n", "sprd/model/Session", "js/data/LocalSt
 
                     if (self.$.rememberSession) {
                         self.$.localStorage.setItem("sessionId", session.$.id);
+                    } else {
+                        self.$.localStorage.removeItem("sessionId");
                     }
 
                     self._fetchUserAndAddForInjection();
