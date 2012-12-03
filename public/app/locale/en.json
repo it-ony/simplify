@@ -1,1 +1,11 @@
-{}
+{
+    "login": {
+        "title": "Login",
+        "login": "Log in",
+
+        "username": "Username",
+        "password": "Password",
+
+        "rememberLogin": "Remember my login on this computer"
+    }
+}

@@ -1,0 +1,27 @@
+<module:LoginModuleClass xmlns="http://www.w3.org/1999/xhtml"
+                         xmlns:module="app.module" xmlns:js="js.core" xmlns:ui="js.ui" xmlns:field="js.ui.field">
+
+    <js:Injection cid="injection" />
+
+    <js:Content name="module">
+        <ui:Dialog title="{i18n.t('login.title')}" class="modal">
+            <js:Content name="body">
+
+                <form class="form-horizontal" onsubmit="login">
+                    <field:Text label="{i18n.t('login.username')}" value="{{session.username}}"/>
+                    <field:Password label="{i18n.t('login.password')}" value="{{session.password}}"/>
+
+                    <ui:Field>
+                        <ui:Checkbox label="{i18n.t('login.rememberLogin')}" checked="{{rememberSession}}"/>
+                    </ui:Field>
+                </form>
+
+            </js:Content>
+            <js:Content name="footer">
+                <ui:Button type="success" onclick="login" label="{i18n.t('login.login')}"/>
+            </js:Content>
+        </ui:Dialog>
+    </js:Content>
+
+
+</module:LoginModuleClass>
