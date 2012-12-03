@@ -41,20 +41,20 @@
                         Menu
                         <ul id="menu" class="unstyled">
                             <li class="home">
-                                <a href="home"><i class="icon-home icon-white"/>Home
+                                <a href="m/home"><i class="icon-home icon-white"/>Home
                                 </a>
                             </li>
                             <li class="statistics">
-                                <a href="statistic">Statistics</a>
+                                <a href="m/statistic">Statistics</a>
                             </li>
                             <li class="designs">
-                                <a href="design">Designs</a>
+                                <a href="m/design">Designs</a>
                             </li>
                             <li class="create">
-                                <a href="create">Create</a>
+                                <a href="m/create">Create</a>
                             </li>
                             <li class="point-of-sales">
-                                <a href="pos">
+                                <a href="m/pos">
                                     <i class="icon-shopping-cart icon-white"/>
                                     Point
                                     of sales
@@ -71,7 +71,7 @@
                             </li>
                             <li>
                                 <ui:ListView class="unstyled" items="{user.shops}" itemKey="collection">
-                                    <a href="collection/{collection.id}">
+                                    <a href="m/collection/{collection.id}">
                                         {collection.name}
                                         <span class="badge">{collection.count}</span>
                                     </a>
