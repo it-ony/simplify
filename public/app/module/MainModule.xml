@@ -73,7 +73,7 @@
                                 </a>
                             </li>
                             <li>
-                                <ui:ListView class="unstyled" items="{user.shops}" itemKey="collection">
+                                <ui:ListView class="unstyled" items="{collections}" itemKey="collection">
                                     <a href="m/collection/{collection.id}">
                                         {collection.name}
                                         <span class="badge">{collection.count}</span>
