@@ -1,0 +1,15 @@
+<module:CreatorClass xmlns="http://www.w3.org/1999/xhtml"
+                    xmlns:module="app.module" xmlns:js="js.core"
+                    xmlns:ui="js.ui" xmlns:view="sprd.view">
+
+    <js:Content name="main">
+        <div id="create">
+            Start here
+        </div>
+    </js:Content>
+    <js:Content name="footer">
+        <p>
+            Some footer notice here. Maybe help.
+        </p>
+    </js:Content>
+</module:CreatorClass>
