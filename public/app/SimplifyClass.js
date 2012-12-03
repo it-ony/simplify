@@ -3,7 +3,8 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
         return Application.inherit({
 
             defaults: {
-                user: null
+                user: null,
+                session: null
             },
 
             inject: {
@@ -30,41 +31,35 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
 
                         if (sessionId) {
                             session = api.createEntity(Session, sessionId);
-                            session.fetch({noCache: true}, function (err) {
+                            session.fetch({
+                                fetchSubModels: ["user"],
+                                noCache: true
+                            }, function (err) {
                                 if (err) {
-                                    createNewSession();
+                                    session = api.createEntity(Session);
+                                    cb();
                                 } else {
                                     cb();
                                 }
                             });
                         } else {
-                            createNewSession();
-                        }
-
-                        function createNewSession() {
                             session = api.createEntity(Session);
-                            session.login(parameter.username, parameter.password, cb);
+                            cb();
                         }
-                    })
-                    .seq(function (cb) {
-                        api.set('session', session);
-                        session.$.user.fetch(null, function (err, user) {
-                            console.log(user, session.$.user, user === session.$.user);
-                            cb(err);
-                        });
-                    })
-                    .seq(function (cb) {
-                        self.set("user", session.$.user);
-                        session.$.user.$.shops.fetch({
-                            fullData: true
-                        }, cb);
                     })
                     .exec(function(err) {
                         if (err) {
                             callback(err);
                         } else {
-                            injection.addInstance("user", session.$.user);
-                            localStorage.setItem("sessionId", session.$.id);
+                            self.set('session', session);
+
+                            // and add it for injection
+                            injection.addInstance(session);
+
+                            if (!session.isNew()) {
+                                // add the user for injection
+                                injection.addInstance("user", session.$.user);
+                            }
 
                             // call start from super
                             self.start.baseImplementation.call(self, parameter, callback);
@@ -74,7 +69,15 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
             },
 
             defaultRoute: function (routeContext) {
-                routeContext.router.navigate("home", routeContext.callback);
+
+                var session = this.$.session;
+                if (session.isNew()) {
+                    // user not logged in
+                    routeContext.router.navigate("login", routeContext.callback);
+                } else {
+                    routeContext.router.navigate("m", routeContext.callback);
+                }
+
             }.async()
         });
     }

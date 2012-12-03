@@ -5,12 +5,14 @@
 
     <js:Injection cid="injection">
         <data:SprdApiDataSource cid="api" gateway="api/v1"
+                                session="{session}"
                                 endPoint="http://api.spreadshirt.net/api/v1"
                                 apiKey="2b065dd3-88b7-44a8-87fe-e564ed27f904"
                                 secret="51616615-0bb1-471e-93f5-fe19022049ef"/>
 
         <data:ImageServerDataSource
                                 cid="imageServer" gateway="image-server/v1"
+                                session="{session}"
                                 endPoint="http://image.spreadshirt.net/image-server/v1"
                                 apiKey="2b065dd3-88b7-44a8-87fe-e564ed27f904"
                                 secret="51616615-0bb1-471e-93f5-fe19022049ef"/>
@@ -28,86 +30,11 @@
         <conf:RouteConfiguration name="default" route="^$" onexec="defaultRoute"/>
     </js:Router>
 
-    <div id="header" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <a class="brand" href="#">Simplify</a>
-                <div class="nav-collapse collapse">
-                    <p class="navbar-text pull-right">
-                        <ui:MenuButton label="{user.name}" class="pull-right " iconClass="icon-user">
-                            <ul>
-                                <li>
-                                    <a href="user/profile">
-                                        <i class="icon_pencil" />Profile
-                                    </a>
-                                </li>
-                                <li class="divider"/>
-                                <li>
-                                    <a href="logout">
-                                        <i class="icon_trash"/>
-                                        Logout
-                                    </a>
-                                </li>
-                            </ul>
+    <js:ModuleLoader router="{router}">
+        <conf:ModuleConfiguration name="login" moduleClass="app.module.LoginModule" route="^login.*$"/>
+        <conf:ModuleConfiguration name="main" moduleClass="app.module.MainModule" route="^m.*$"/>
 
-                        </ui:MenuButton>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+        <ui:ContentPlaceHolder name="module"/>
+    </js:ModuleLoader>
 
-    <div id="container">
-            <div id="sidebar">
-                <ul class="unstyled">
-                    <li>
-                        Menu
-                        <ul id="menu" class="unstyled">
-                            <li class="home">
-                                <a href="home"><i class="icon-home icon-white" />Home</a>
-                            </li>
-                            <li class="statistics">
-                                <a href="statistic">Statistics</a>
-                            </li>
-                            <li class="designs">
-                                <a href="design">Designs</a>
-                            </li>
-                            <li class="create">
-                                <a href="create">Create</a>
-                            </li>
-                            <li class="point-of-sales">
-                                <a href="pos"><i class="icon-shopping-cart icon-white"/>Point of sales</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        Your Collections
-                        <ul class="unstyled">
-                            <li>
-                                <a><i class="icon-plus icon-white"/>new Collection</a>
-                            </li>
-                            <li>
-                                <ui:ListView class="unstyled" items="{user.shops}" itemKey="collection">
-                                    <a href="collection/{collection.id}">
-                                        {collection.name}
-                                        <span class="badge">{collection.count}</span>
-                                    </a>
-                                </ui:ListView>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <js:ModuleLoader router="{router}" id="content">
-                <conf:ModuleConfiguration name="home" moduleClass="app.module.HomeModule" route="^home.*$"/>
-                <conf:ModuleConfiguration name="collection" moduleClass="app.module.CollectionModule" route="^collection.*$"/>
-                <conf:ModuleConfiguration name="statistic" moduleClass="app.module.StatisticModule" route="^statistic.*$"/>
-                <conf:ModuleConfiguration name="pos" moduleClass="app.module.PosModule" route="^pos.*$"/>
-                <conf:ModuleConfiguration name="design" moduleClass="app.module.DesignModule" route="^design.*$"/>
-                <conf:ModuleConfiguration name="create" moduleClass="app.module.CreateModule" route="^create.*$"/>
-
-                <ui:ContentPlaceHolder name="main" id="main" class="row-fluid"/>
-                <ui:ContentPlaceHolder name="footer" id="footer" class="row-fluid"/>
-            </js:ModuleLoader>
-    </div>
 </app:SimplifyClass>
