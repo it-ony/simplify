@@ -3,7 +3,7 @@
                      xmlns:ui="js.ui" xmlns:view="sprd.view">
 
     <js:Content name="main">
-        <div id="create">
+        <div id="creator">
             <div id="motive">
                 <div class="dropzone"><p class="big">+</p><p>drop your motive here</p></div>
 
