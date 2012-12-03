@@ -53,6 +53,9 @@
                             <li class="create">
                                 <a href="m/create">Create</a>
                             </li>
+                            <li class="create">
+                                <a href="m/creator">Creator 2</a>
+                            </li>
                             <li class="point-of-sales">
                                 <a href="m/pos">
                                     <i class="icon-shopping-cart icon-white"/>
@@ -89,6 +92,7 @@
                 <conf:ModuleConfiguration name="pos" moduleClass="app.module.PosModule" route="^m\/pos.*$"/>
                 <conf:ModuleConfiguration name="design" moduleClass="app.module.DesignModule" route="^m\/design.*$"/>
                 <conf:ModuleConfiguration name="create" moduleClass="app.module.CreateModule" route="^m\/create.*$"/>
+                <conf:ModuleConfiguration name="creator" moduleClass="app.module.Creator" route="^m\/creator.*$"/>
 
                 <ui:ContentPlaceHolder name="main" id="main" class="row-fluid"/>
                 <ui:ContentPlaceHolder name="footer" id="footer" class="row-fluid"/>
