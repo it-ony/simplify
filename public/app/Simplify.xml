@@ -53,7 +53,6 @@
                         </ui:MenuButton>
                     </p>
                 </div>
-                <!--/.nav-collapse -->
             </div>
         </div>
     </div>
@@ -100,12 +99,12 @@
                 </ul>
             </div>
             <js:ModuleLoader router="{router}" id="content">
-                <conf:ModuleConfiguration name="home" moduleClass="app.module.Home" route="^home.*$"/>
-                <conf:ModuleConfiguration name="collection" moduleClass="app.module.Collection" route="^collection.*$"/>
-                <conf:ModuleConfiguration name="statistic" moduleClass="app.module.Statistic" route="^statistic.*$"/>
-                <conf:ModuleConfiguration name="pos" moduleClass="app.module.Pos" route="^pos.*$"/>
+                <conf:ModuleConfiguration name="home" moduleClass="app.module.HomeModule" route="^home.*$"/>
+                <conf:ModuleConfiguration name="collection" moduleClass="app.module.CollectionModule" route="^collection.*$"/>
+                <conf:ModuleConfiguration name="statistic" moduleClass="app.module.StatisticModule" route="^statistic.*$"/>
+                <conf:ModuleConfiguration name="pos" moduleClass="app.module.PosModule" route="^pos.*$"/>
                 <conf:ModuleConfiguration name="design" moduleClass="app.module.DesignModule" route="^design.*$"/>
-                <conf:ModuleConfiguration name="create" moduleClass="app.module.Create" route="^create.*$"/>
+                <conf:ModuleConfiguration name="create" moduleClass="app.module.CreateModule" route="^create.*$"/>
 
                 <ui:ContentPlaceHolder name="main" id="main" class="row-fluid"/>
                 <ui:ContentPlaceHolder name="footer" id="footer" class="row-fluid"/>

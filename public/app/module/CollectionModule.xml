@@ -1,4 +1,4 @@
-<module:CollectionClass xmlns="http://www.w3.org/1999/xhtml"
+<module:CollectionModuleClass xmlns="http://www.w3.org/1999/xhtml"
                         xmlns:module="app.module" xmlns:js="js.core" xmlns:conf="js.conf" xmlns:ui="js.ui" xmlns:sprdView="sprd.view">
 
     <js:Router>
@@ -43,4 +43,4 @@
     <js:Content name="footer">
         <h1>Footer</h1>
     </js:Content>
-</module:CollectionClass>
+</module:CollectionModuleClass>

@@ -1,4 +1,4 @@
-<module:CreateClass xmlns="http://www.w3.org/1999/xhtml"
+<module:CreateModuleClass xmlns="http://www.w3.org/1999/xhtml"
                     xmlns:module="app.module" xmlns:js="js.core"
                     xmlns:ui="js.ui" xmlns:view="sprd.view">
 
@@ -54,4 +54,4 @@
             Some footer notice here. Maybe help.
         </p>
     </js:Content>
-</module:CreateClass>
+</module:CreateModuleClass>

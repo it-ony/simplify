@@ -1,4 +1,4 @@
-<module:HomeClass xmlns="http://www.w3.org/1999/xhtml"
+<module:HomeModuleClass xmlns="http://www.w3.org/1999/xhtml"
                   xmlns:module="app.module" xmlns:js="js.core">
     <js:Content name="main">
         <div class="row-fluid">
@@ -13,4 +13,4 @@
     <js:Content name="footer">
         <h1>Footer</h1>
     </js:Content>
-</module:HomeClass>
+</module:HomeModuleClass>
