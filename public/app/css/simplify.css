@@ -1,3 +1,4 @@
+
 html, body {
     margin: 0;
     width: 100%;
@@ -59,7 +60,7 @@ html, body {
 }
 
 #main {
-   /* padding: 10px 30px;*/
+    padding: 10px 30px;
     position: absolute;
     top: 0;
     left: 0;
@@ -184,6 +185,10 @@ html, body {
 }
 
 /*creator*/
+#create {
+    margin: -10px -30px;
+}
+
 #motive{
     float:left;
     width:180px;
