@@ -19,6 +19,7 @@ define(['app/module/ModuleBase', "flow", "js/core/List", "js/data/DataSource", "
                 collections = this.$.collections,
                 api = this.$.api;
 
+            // TODO: use UserShops
             flow()
                 .seq(function(cb) {
                     // fetch list of collection of the user
