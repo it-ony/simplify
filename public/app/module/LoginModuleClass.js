@@ -13,8 +13,8 @@ define(['js/core/Module', "js/core/I18n", "sprd/model/Session", "js/data/LocalSt
         },
 
         start: function(callback, routeContext) {
-            if (!this.$.session.isNew()) {
 
+            if (!this.$.session.isNew()) {
                 this._fetchUserAndAddForInjection(function() {
                     routeContext.router.navigate("m", function () {
                         routeContext.callback();
@@ -69,9 +69,13 @@ define(['js/core/Module', "js/core/I18n", "sprd/model/Session", "js/data/LocalSt
                         // TODO: show error visible for user
                         console.err(err);
                     } else {
-                        self.$.history.navigate("m");
+                        self.$.history.navigate(self.$redirectUrl || "m");
                     }
                 });
-        }
+        },
+
+        bus_LoginRedirectUrl: function(e) {
+            this.$redirectUrl = e.$;
+        }.bus("Login.RedirectUrl")
     });
 });

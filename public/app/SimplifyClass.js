@@ -1,4 +1,4 @@
-define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStorage"], function (Application, Session, flow, LocalStorage) {
+define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStorage", "js/core/History"], function (Application, Session, flow, LocalStorage, History) {
 
         return Application.inherit({
 
@@ -8,7 +8,8 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
             },
 
             inject: {
-                localStorage: LocalStorage
+                localStorage: LocalStorage,
+                history: History
             },
 
             /***
@@ -56,16 +57,24 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
                             // and add it for injection
                             injection.addInstance(session);
 
+                            var fragment;
+
                             if (!session.isNew()) {
                                 // add the user for injection
                                 injection.addInstance("user", session.$.user);
+                            } else {
+                                fragment = self.$.history._getFragment();
+                                self.$.history.navigate("login");
                             }
 
                             // call start from super
-                            self.start.baseImplementation.call(self, parameter, callback);
+                            self.start.baseImplementation.call(self, parameter, function() {
+                                var args = Array.prototype.slice.call(arguments);
+                                fragment && self.$stage.$bus.trigger("Login.RedirectUrl", fragment);
+                                callback.apply(this, args);
+                            });
                         }
                     })
-
             },
 
             defaultRoute: function (routeContext) {
