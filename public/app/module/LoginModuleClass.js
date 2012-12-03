@@ -1,4 +1,4 @@
-define(['js/core/Module', "js/core/I18n", "sprd/model/Session", "js/data/LocalStorage", "flow"], function(Module, I18n, Session, LocalStorage, flow) {
+define(['js/core/Module', "js/core/I18n", "sprd/model/Session", "js/data/LocalStorage", "flow", "js/core/History"], function(Module, I18n, Session, LocalStorage, flow, History) {
     return Module.inherit('app.module.LoginModuleClass', {
 
         defaults: {
@@ -8,7 +8,8 @@ define(['js/core/Module', "js/core/I18n", "sprd/model/Session", "js/data/LocalSt
         inject: {
             i18n: I18n,
             session: Session,
-            localStorage: LocalStorage
+            localStorage: LocalStorage,
+            history: History
         },
 
         start: function(callback, routeContext) {
@@ -37,7 +38,7 @@ define(['js/core/Module', "js/core/I18n", "sprd/model/Session", "js/data/LocalSt
                     session.$.user.fetch(null, cb);
                 })
                 .seq(function() {
-                    self.$.injection.addInstance(session.$.user);
+                    self.$.injection.addInstance("user", session.$.user);
                 })
                 .exec(callback)
 
@@ -49,21 +50,28 @@ define(['js/core/Module', "js/core/I18n", "sprd/model/Session", "js/data/LocalSt
             var self = this,
                 session = this.$.session;
 
-            session.login(function(err) {
-                if (err) {
-                    // TODO: show error
-                    console.log(err);
-                } else {
-
+            flow()
+                .seq(function(cb) {
+                    session.login(cb);
+                })
+                .seq(function(cb) {
+                    self._fetchUserAndAddForInjection(cb);
+                })
+                .seq(function() {
                     if (self.$.rememberSession) {
                         self.$.localStorage.setItem("sessionId", session.$.id);
                     } else {
                         self.$.localStorage.removeItem("sessionId");
                     }
-
-                    self._fetchUserAndAddForInjection();
-                }
-            });
+                })
+                .exec(function (err) {
+                    if (err) {
+                        // TODO: show error visible for user
+                        console.err(err);
+                    } else {
+                        self.$.history.navigate("m");
+                    }
+                });
         }
     });
 });
