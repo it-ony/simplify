@@ -4,13 +4,15 @@ define(['app/module/ModuleBase', "js/data/DataSource", "flow"], function(ModuleB
         defaults: {
             // focused collection
             collection: null,
+            designs: "{user.designs}",
 
             // the product
             product: null
         },
 
         inject: {
-            api: DataSource
+            api: DataSource,
+            user: 'user'
         }
 
     });

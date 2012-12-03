@@ -1,10 +1,48 @@
 <module:CreatorClass xmlns="http://www.w3.org/1999/xhtml"
-                    xmlns:module="app.module" xmlns:js="js.core"
-                    xmlns:ui="js.ui" xmlns:view="sprd.view">
+                     xmlns:module="app.module" xmlns:js="js.core"
+                     xmlns:ui="js.ui" xmlns:view="sprd.view">
 
     <js:Content name="main">
         <div id="create">
-            Start here
+            <div id="motive">
+                <div class="dropzone"><p class="big">+</p><p>drop your motive here</p></div>
+
+                <ui:TileList cid="designList" class="mot_list"
+                             data="{designs}"
+                             heightUpdatePolicy="in" widthUpdatePolicy="in"
+                             prefetchItemCount="10"
+                             min-height="300"
+                             height="300"
+                             selectionMode="single"
+                             itemWidth="150" itemHeight="150"
+                             horizontalGap="20" verticalGap="1" cols="1">
+                    <js:Template name="renderer">
+                        <view:DesignImage class="mot_img" width="150" height="150" design="{item}"/>
+                    </js:Template>
+                </ui:TileList>
+                <!--<ul class="mot_list">-->
+                    <!--<li class="mot_img"><a href="#"> </a></li>-->
+                    <!--<li class="mot_img"></li>-->
+                    <!--<li class="mot_img"></li>-->
+                    <!--<li class="mot_img"></li>-->
+                <!--</ul>-->
+
+
+            </div>
+            <div id="content_cat">
+                <!--<view:DesignImage width="300" height="300" design="{designList.selectedItems.at(0)}"/>-->
+                <div id="horizontal_catslider">
+                    <ul class="cat_list">
+                        <li class="cat_img"><a href="#"> </a></li>
+                        <li class="cat_img"></li>
+                        <li class="cat_img"></li>
+                        <li class="cat_img"></li>
+                    </ul>
+                </div>
+                <div id="cat_content"></div>
+            </div>
+
+
         </div>
     </js:Content>
     <js:Content name="footer">

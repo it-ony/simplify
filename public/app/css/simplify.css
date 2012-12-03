@@ -59,7 +59,7 @@ html, body {
 }
 
 #main {
-    padding: 10px 30px;
+   /* padding: 10px 30px;*/
     position: absolute;
     top: 0;
     left: 0;
@@ -181,4 +181,77 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+/*creator*/
+#motive{
+    float:left;
+    width:180px;
+    box-shadow: 0px 0px 10px inset;
+    background-color: #2f4f4f;
+}
+
+
+.dropzone {
+    margin: 10px;
+    color: white;
+    height:150px;
+    width:150px;
+    border: 3px dashed gray;
+    border-radius:10px;
+
+}
+
+p.big {
+    font-size: 8em;
+    line-height: .7em;
+    font-weight:bold;clear:both;}
+
+
+.dropzone p {
+    text-align: center;
+    margin:10px;
+}
+
+.mot_list {
+    list-style-type: none;
+    height: 600px;
+}
+
+ul.scroll-container {
+    margin:20px;
+}
+
+ul.cat_list {
+
+}
+
+
+
+li.mot_img, li.cat_img {
+    margin: 20px;
+    height: 150px;
+    width:150px;
+    border:1px solid gray;
+
+}
+
+li.cat_img  {
+    float:left;
+}
+
+li.mot_img a:hover {
+
+    padding: 20px;
+    margin-left:-20px;
+    background-color:#EEE ;
+}
+
+#horizontal_catslider{
+    float:right;
+    width:80%;
+    height:200px;
+    background: -moz-linear-gradient(left, #eeeeee 0%, #cccccc 50%, #eeeeee 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#eeeeee), color-stop(50%,#cccccc), color-stop(100%,#eeeeee));
+
 }
