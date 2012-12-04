@@ -171,6 +171,9 @@ span.username {
 
 #footer
 {position:absolute;
+    background-color:#308726;
+    margin:-10px;
+    padding:5px 20px;
     bottom:0;}
 
 #main {
