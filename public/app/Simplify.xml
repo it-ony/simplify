@@ -30,7 +30,7 @@
         <conf:RouteConfiguration name="default" route="^$" onexec="defaultRoute"/>
     </js:Router>
 
-    <js:ModuleLoader router="{router}">
+    <js:ModuleLoader router="{router}" id="wrapper">
         <conf:ModuleConfiguration name="login" moduleClass="app.module.LoginModule" route="^login.*$"/>
         <conf:ModuleConfiguration name="main" moduleClass="app.module.MainModule" route="^m.*$"/>
 
