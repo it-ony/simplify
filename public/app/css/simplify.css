@@ -77,11 +77,9 @@ html, body, .stage {
     color: #eeeeee;
 }
 
-#menu .logo {
+#menu li.logo {
+    height: 45px !important;
     background: url(../img/png.png) no-repeat top center;
-    height: 45px;
-    line-height: 10em;
-    border-bottom: 1px solid black;
     box-shadow: 0 1px 0 white;
 }
 
