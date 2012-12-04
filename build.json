@@ -1,0 +1,16 @@
+{
+    "modules" : [
+        "app/Simplify",
+        "app/module/CollectionModule",
+        "app/module/CreateModule",
+        "app/module/Creator",
+        "app/module/DesignModule",
+        "app/module/HomeModule",
+        "app/module/MainModule",
+        "app/module/LoginModule"
+    ],
+    "indexFile": "index.html",
+    "targetDir" : "public-build",
+    "uglify" : true,
+    "usePackageVersion": true
+}
