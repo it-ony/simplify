@@ -52,7 +52,7 @@
         </div>
         <js:ModuleLoader router="{router}" id="content">
             <conf:ModuleConfiguration name="home" moduleClass="app.module.HomeModule" route="^m\/home.*$"/>
-            <conf:ModuleConfiguration name="collection" moduleClass="app.module.CollectionModule" route="^m\/collection.*$"/>
+            <conf:ModuleConfiguration name="collection" moduleClass="app.module.CollectionModule" route="^m\/collections.*$"/>
             <conf:ModuleConfiguration name="statistic" moduleClass="app.module.StatisticModule" route="^m\/statistic.*$"/>
             <conf:ModuleConfiguration name="pos" moduleClass="app.module.PosModule" route="^m\/pos.*$"/>
             <conf:ModuleConfiguration name="design" moduleClass="app.module.DesignModule" route="^m\/design.*$"/>
