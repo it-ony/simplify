@@ -16,11 +16,13 @@ html, body, .stage {
 
 #menu {
     position: absolute;
-    height: 100%;
+    top:0;
+    bottom:0;
+    left:0;
     outline: 1px solid black;
     width: 100px;
     padding:5px;
-    background-color:#555;
+    background-color:  #1b1c1f;
     box-shadow:0px 0px 10px black inset;
 }
 
@@ -28,17 +30,12 @@ html, body, .stage {
     position: absolute;
     left: 80px;
     right: 0;
-    height: 100%;
+    left:110px;
+    bottom:0;
+    right:0;
+    top:0;
 }
 
-#menu ul li ul li.logo{
-    background-image: url(../img/png.png);
-    height:60px;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-bottom:1px solid black;
-    box-shadow:0px 1px 0px white;
-}
 
 
 
@@ -51,10 +48,19 @@ html, body, .stage {
     text-shadow:1px 1px 2px black;
     font-weight:normal;
     letter-spacing:-0.05em;
-    height:100%;
+
 }
 
-#menu ul li , div#menu ul li.bottom ul li.profile {
+
+#content {
+
+    top:0;
+    right:0;
+    left:110px;
+    bottom:0;
+}
+
+#menu ul li {
     margin: 0 auto;
     text-align:center;
     height:80px;
@@ -63,20 +69,22 @@ html, body, .stage {
 
 #menu ul li ul li a{color:#eeeeee;}
 
-#menu ul li.bottom { clear:both;}
-
-
-#content {
-    margin-left:30px;
-    float:right;
-    width:90%;}
+#menu ul li ul li.logo{
+    background-image: url(../img/png.png);
+    height:60px;
+    background-position: top center;
+    line-height:10em;
+    background-repeat: no-repeat;
+    border-bottom:1px solid black;
+    box-shadow:0px 1px 0px white;
+}
 
 #menu ul li ul li.statistics a{
     background-image: url(../img/stat.png);
     padding-top: 60px;
     height: 60px;
     line-height: 10em;
-    background-position: top center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: 50px;
 }
@@ -126,20 +134,19 @@ html, body, .stage {
 div#menu ul li.bottom  {
     position:absolute;
     clear:both;
+    bottom:0;
 
 
 }
-#content {
-    width:100%;
-    height:100%;
-    position:absolute;
 
-}
 #main {
-    height:95%;
+
 }
+
+
 #footer
-{height:5%;}
+{position:absolute;
+    bottom:0;}
 
 
 
@@ -306,33 +313,39 @@ div#menu ul li.bottom  {
     /*border-radius: 4px 4px 10px 10px;*/
 /*}*/
 
-/*.design-container {*/
-    /*position: absolute;*/
-    /*top: 180px;*/
-    /*bottom: 0;*/
-    /*right: 30px;*/
-    /*left: 30px;*/
-/*}*/
+.toolbar,row-fluid {
+    margin:10px;
+}
 
-/*.design-tile-list {*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*bottom: 0;*/
-/*}*/
+.design-container {
+
+    position: absolute;
+    top: 180px;
+    bottom: 0;
+    right: 0;
+    left: 10px;
+}
+
+.design-tile-list {
+overflow-x: scroll;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 
 /*creator*/
 /*#creator {*/
     /*margin: -10px -30px;*/
 /*}*/
 
-/*#motive{*/
-    /*float:left;*/
-    /*width:200px;*/
-    /*box-shadow: 0px 0px 10px inset;*/
-    /*background-color: #2f4f4f;*/
-/*}*/
+#motive{
+    float:left;
+    width:200px;
+    box-shadow: 0px 0px 10px inset;
+    background-color: #2f4f4f;
+}
 
 
 /*.dropzone {*/
@@ -361,12 +374,16 @@ div#menu ul li.bottom  {
     /*height: 600px;*/
 /*}*/
 
+div.design-tile-list ul.scroll-container {
+    list-style-type:none;
+}
 
-/*div.mot_list.tile-list ul.scroll-container {*/
-    /*margin:20px;*/
-    /*list-style-type: none;*/
-    /*height: 600px;*/
-/*}*/
+
+div.mot_list.tile-list ul.scroll-container {
+    margin:20px;
+    list-style-type: none;
+    height: 600px;
+}
 
 
 
