@@ -1,5 +1,7 @@
 <module:MainModuleClass xmlns="http://www.w3.org/1999/xhtml"
-                        xmlns:module="app.module" xmlns:js="js.core" xmlns:ui="js.ui" xmlns:conf="js.conf">
+                        xmlns:module="app.module"
+                        xmlns:js="js.core" xmlns:ui="js.ui" xmlns:conf="js.conf"
+                        xmlns:sprdView="sprd.view">
 
     <js:Router cid="router">
         <conf:RouteConfiguration onexec="defaultRoute" route="^m$" />
@@ -34,14 +36,12 @@
                     <ul>
                         <li class="profile">
                             <div>
-                                <img src=""/>
-                                <span class="username">
-
-                                </span>
+                                <sprdView:UserImage user="{user}" width="50" height="50"/>
+                                <span class="username">{user.name}</span>
                             </div>
                         </li>
                         <li class="logout">
-                            <a href="">Logout</a>
+                            <a onclick="logout">Logout</a>
                         </li>
                         <li class="info">
                             <a />

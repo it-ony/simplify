@@ -1,4 +1,4 @@
-define(['app/module/ModuleBase', "flow", "js/core/List", "js/data/DataSource", "sprd/model/Shop"], function(ModuleBase, flow, List, DataSource, Shop) {
+define(['app/module/ModuleBase', "flow", "js/core/List", "js/data/DataSource", "sprd/model/Shop", "sprd/model/Session"], function(ModuleBase, flow, List, DataSource, Shop, Session) {
     return ModuleBase.inherit('app.module.MainModuleClass', {
 
         defaults: {
@@ -6,7 +6,8 @@ define(['app/module/ModuleBase', "flow", "js/core/List", "js/data/DataSource", "
         },
 
         inject: {
-            api: DataSource
+            api: DataSource,
+            session: Session
         },
 
         defaultRoute: function(routeContext) {
@@ -37,6 +38,10 @@ define(['app/module/ModuleBase', "flow", "js/core/List", "js/data/DataSource", "
                 .exec();
 
             this.callBase();
+        },
+
+        logout: function() {
+
         }
     });
 });
