@@ -69,7 +69,13 @@ define(['js/core/Module', "js/core/I18n", "sprd/model/Session", "js/data/LocalSt
                         // TODO: show error visible for user
                         console.err(err);
                     } else {
-                        self.$.history.navigate(self.$redirectUrl || "m");
+
+                        var to = self.$redirectUrl || "m";
+                        if (to === "login") {
+                            to = "m";
+                        }
+
+                        self.$.history.navigate(to);
                     }
                 });
         },
