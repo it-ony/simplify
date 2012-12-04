@@ -42,7 +42,7 @@ html, body, .stage {
 
 
 
-#menu ul {
+#menu ul, div#menu ul li.bottom ul {
 
     font-size:.95em;
     color:white;
