@@ -1,43 +1,87 @@
 <module:CollectionModuleClass xmlns="http://www.w3.org/1999/xhtml"
-                        xmlns:module="app.module" xmlns:js="js.core" xmlns:conf="js.conf" xmlns:ui="js.ui" xmlns:sprdView="sprd.view">
+                              xmlns:module="app.module" xmlns:js="js.core" xmlns:conf="js.conf" xmlns:ui="js.ui"
+                              xmlns:sprdView="sprd.view">
 
     <js:Router>
-        <conf:RouteConfiguration route="^collection/(\d+)$" onexec="showCollection"/>
+        <conf:RouteConfiguration route="^m/collections$" onexec="defaultRoute"/>
+        <conf:RouteConfiguration route="^m/collections/(\d+)$" onexec="showCollection"/>
     </js:Router>
 
     <js:Content name="main">
-        <div class="row-fluid">
-            <div class="span12">
-                <ui:TabView>
-                    <ui:Tab title="tiles">
-                        <ui:TileList cid="articleList" id="articleList" class="articles"
-                                     heightUpdatePolicy="in" data="{collection.articles}" height="100"
-                                     widthUpdatePolicy="in" itemWidth="100" itemHeight="100" horizontalGap="15"
-                                     verticalGap="50" cols="5" prefetchItemCount="6">
-                            <js:Template name="renderer">
-                                <sprdView:ArticleImage class="composition" article="{$dataItem.data}" type="composition"
-                                                       width="150" height="150"/>
-                            </js:Template>
-                        </ui:TileList>
-                    </ui:Tab>
-                    <ui:Tab title="table">
-                        <ui:DataGrid data="{collection.articles}" selectionMode="single">
-                            <ui:DataGridColumn title="name" path="name"/>
-                            <ui:DataGridColumn title="id" path="id"/>
-                            <ui:DataGridColumn title="picture">
-                                <js:Template name="cell">
-                                    <sprdView:ArticleImage class="composition" article="{$dataItem.data}"
-                                                           type="composition"
-                                                           width="50" height="50"/>
-                                </js:Template>
-                            </ui:DataGridColumn>
-
-                        </ui:DataGrid>
-                    </ui:Tab>
-
-                </ui:TabView>
-
+        <div class="page">
+            <div class="page-left">
+                <div class="collection-item add-collection">
+                    <a>Add Collection</a>
+                </div>
+                <div class="collection-item all-products" selected="{showProducts}">
+                    <a href="/m/collections">Products</a>
+                </div>
+                <ui:TileList cid="collectionList" id="collectionList" class="articles"
+                             heightUpdatePolicy="in"
+                             widthUpdatePolicy="in"
+                             data="{user.shops}"
+                             itemHeight="50" itemWidth="null" horizontalGap="0"
+                             verticalGap="1" cols="1" prefetchItemCount="6"
+                            selectionMode="">
+                    <js:Template name="renderer">
+                        {item.name}
+                    </js:Template>
+                </ui:TileList>
             </div>
+            <div class="page-right">
+                <ui:TileList
+                            visible="{not(showProducts)}"
+                            cid="articleList" id="articleList"
+                             heightUpdatePolicy="in"
+                             widthUpdatePolicy="in"
+                             data="{collection.articles}"
+                             itemWidth="150" itemHeight="150" horizontalGap="15"
+                             verticalGap="50" cols="5" prefetchItemCount="6">
+                    <js:Template name="renderer">
+                        <div>
+                            <sprdView:ArticleImage class="composition" article="{item}"
+                                                   width="120" height="120"/>
+                            <div>
+                                {item.name}
+                            </div>
+                        </div>
+                    </js:Template>
+                </ui:TileList>
+                <ui:TileList
+                        visible="{showProducts}"
+                        cid="productList" id="articleList"
+                        heightUpdatePolicy="in"
+                        widthUpdatePolicy="in"
+                        data="{user.products}"
+                        itemWidth="150" itemHeight="150" horizontalGap="15"
+                        verticalGap="50" cols="5" prefetchItemCount="6">
+                    <js:Template name="renderer">
+                        <div>
+                            <sprdView:ArticleImage class="composition" article="{item}"
+                                                   width="120" height="120"/>
+                            <div>
+                                {item.name}
+                            </div>
+                        </div>
+                    </js:Template>
+                </ui:TileList>
+            </div>
+
+
+            <!--<ui:DataGrid data="{collection.articles}" selectionMode="single">-->
+            <!--<ui:DataGridColumn title="name" path="name"/>-->
+            <!--<ui:DataGridColumn title="id" path="id"/>-->
+            <!--<ui:DataGridColumn title="picture">-->
+            <!--<js:Template name="cell">-->
+            <!--<sprdView:ArticleImage class="composition" article="{$dataItem.data}"-->
+            <!--type="composition"-->
+            <!--width="50" height="50"/>-->
+            <!--</js:Template>-->
+            <!--</ui:DataGridColumn>-->
+
+            <!--</ui:DataGrid>-->
+
+
         </div>
     </js:Content>
     <js:Content name="footer">
