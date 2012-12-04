@@ -47,7 +47,6 @@ html, body, .stage {
     text-shadow: 1px 1px 2px black;
     font-weight: normal;
     width: 100px;
-
 }
 
 #menu .top {
@@ -250,9 +249,8 @@ div.toolbar.row-fluid {
 /*right: 10px;*/
 /*}*/
 
-** IMAGE UPLOAD **
+/** IMAGE UPLOAD **/
 div.image-upload {
-    position: absolute;
     background: #2c2e34;
     padding: 10px;
     min-height: 80px;
@@ -309,10 +307,6 @@ div.image-upload {
 /*box-sizing: border-box;*/
 /*}*/
 
-.row-fluid {
-
-}
-
 /*.row-fluid.panel + .row-fluid.panel {*/
 /*margin-top: 30px;*/
 /*}*/
@@ -368,7 +362,7 @@ div.image-upload {
 #motive {
     float: left;
     width: 200px;
-    box-shadow: 0px 0px 10px inset;
+    box-shadow: 0 0 10px inset;
     background-color: #2f4f4f;
 }
 
