@@ -10,7 +10,7 @@
     <js:Content name="module">
         <div id="menu">
             <ul>
-                <li>
+                <li class="top">
                     <ul>
                         <li class="logo">
                             <a href="m" />
