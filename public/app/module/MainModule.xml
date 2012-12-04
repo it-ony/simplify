@@ -59,8 +59,8 @@
             <conf:ModuleConfiguration name="create" moduleClass="app.module.CreateModule" route="^m\/create.*$"/>
             <conf:ModuleConfiguration name="creator" moduleClass="app.module.Creator" route="^m\/creator.*$"/>
 
-            <ui:ContentPlaceHolder name="main" id="main" class="row-fluid"/>
-            <ui:ContentPlaceHolder name="footer" id="footer" class="row-fluid"/>
+            <ui:ContentPlaceHolder name="main" id="main" />
+            <ui:ContentPlaceHolder name="footer" id="footer" />
         </js:ModuleLoader>
     </js:Content>
 
