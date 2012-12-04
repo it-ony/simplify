@@ -1,33 +1,38 @@
 define(['app/module/ModuleBase', "flow", "js/core/List", "js/data/DataSource", "sprd/model/Shop", "sprd/model/Session", "js/data/LocalStorage", "js/core/History"],
-    function(ModuleBase, flow, List, DataSource, Shop, Session, LocalStorage, History) {
+    function (ModuleBase, flow, List, DataSource, Shop, Session, LocalStorage, History) {
 
-    return ModuleBase.inherit('app.module.MainModuleClass', {
+        var undefined;
 
-        inject: {
-            api: DataSource,
-            session: Session,
-            localStorage: LocalStorage,
-            history: History
-        },
+        return ModuleBase.inherit('app.module.MainModuleClass', {
 
-        defaultRoute: function(routeContext) {
-            routeContext.router.navigate("m/home");
-        },
+            inject: {
+                api: DataSource,
+                session: Session,
+                localStorage: LocalStorage,
+                history: History
+            },
 
-        logout: function() {
+            defaultRoute: function (routeContext) {
+                routeContext.router.navigate("m/home");
+            },
 
-            var self = this,
-                localStorage = this.$.localStorage,
-                history = this.$.history;
+            logout: function () {
 
-            this.$.session.remove(null, function(err) {
+                var self = this,
+                    localStorage = this.$.localStorage,
+                    history = this.$.history,
+                    session = this.$.session;
 
-                err && self.log(err, "error");
+                session.remove(null, function (err) {
 
-                localStorage.removeItem("sessionId");
-                history.navigate("login");
-            });
+                    session.$.id = undefined;
 
-        }
+                    err && self.log(err, "error");
+
+                    localStorage.removeItem("sessionId");
+                    history.navigate("login");
+                });
+
+            }
+        });
     });
-});

@@ -66,8 +66,10 @@ define(['js/core/Module', "js/core/I18n", "sprd/model/Session", "js/data/LocalSt
                 .exec(function (err) {
                     if (err) {
                         // TODO: show error visible for user
-                        console.err(err);
+                        console.error(err);
                     } else {
+
+                        session.set('password', null);
 
                         var to = self.$redirectUrl || "m";
                         if (to === "login") {
