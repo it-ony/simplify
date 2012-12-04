@@ -4,6 +4,7 @@
 
     <js:Router>
         <conf:RouteConfiguration route="^m/collections$" onexec="defaultRoute"/>
+        <conf:RouteConfiguration route="^m/collections/products$" onexec="showProducts"/>
         <conf:RouteConfiguration route="^m/collections/(\d+)$" onexec="showCollection"/>
     </js:Router>
 
@@ -14,7 +15,7 @@
                     <a>Add Collection</a>
                 </div>
                 <div class="collection-item all-products" selected="{showProducts}">
-                    <a href="/m/collections">Products</a>
+                    <a href="/m/collections/products">Products</a>
                 </div>
                 <ui:TileList cid="collectionList" id="collectionList" class="articles"
                              heightUpdatePolicy="in"

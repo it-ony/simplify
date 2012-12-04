@@ -27,18 +27,23 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Shop", "flow"
         },
 
         defaultRoute: function (routeContext) {
-            this.set('showProducts', true);
-            this.$.collectionList.$.selectedItems.clear();
+            if(this.$.selectedCollection){
+                this.$stage.$history.navigate('m/collections/'+this.$.selectedCollection.$.id);
+            } else {
+                this.$stage.$history.navigate('m/collections/products');
+            }
             routeContext.callback();
         }.async(),
-
+        showProducts: function(){
+            this.set('showProducts', true);
+            this.$.collectionList.$.selectedItems.clear();
+        },
         showCollection: function(routeContext, collectionId) {
 
             var api = this.$.api,
                 collection = api.createEntity(Shop, collectionId);
 
             this.set("collection", collection);
-
             flow()
                 .seq(function(cb) {
                     collection.fetch(null, cb);
