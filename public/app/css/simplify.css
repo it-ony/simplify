@@ -66,6 +66,7 @@ html, body, .stage {
 
 
 #content {
+    margin-left:30px;
     float:right;
     width:90%;}
 
