@@ -22,7 +22,7 @@ html, body, .stage {
     outline: 1px solid black;
     width: 100px;
     padding:5px;
-    background-color:#555;
+    background-color:  #1b1c1f;
     box-shadow:0px 0px 10px black inset;
 }
 
@@ -36,14 +36,7 @@ html, body, .stage {
     top:0;
 }
 
-#menu ul li ul li.logo{
-    background-image: url(../img/png.png);
-    height:60px;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-bottom:1px solid black;
-    box-shadow:0px 1px 0px white;
-}
+
 
 
 #menu ul{
@@ -58,6 +51,15 @@ html, body, .stage {
 
 }
 
+
+#content {
+
+    top:0;
+    right:0;
+    left:110px;
+    bottom:0;
+}
+
 #menu ul li {
     margin: 0 auto;
     text-align:center;
@@ -65,19 +67,16 @@ html, body, .stage {
     list-style-type: none;
 }
 
-#menu ul li ul li {
-
-
-}
-
 #menu ul li ul li a{color:#eeeeee;}
 
-
-#content {
-    top:0;
-    right:0;
-    left:120px;
-    bottom:0;
+#menu ul li ul li.logo{
+    background-image: url(../img/png.png);
+    height:60px;
+    background-position: top center;
+    line-height:10em;
+    background-repeat: no-repeat;
+    border-bottom:1px solid black;
+    box-shadow:0px 1px 0px white;
 }
 
 #menu ul li ul li.statistics a{
@@ -85,7 +84,7 @@ html, body, .stage {
     padding-top: 60px;
     height: 60px;
     line-height: 10em;
-    background-position: top center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: 50px;
 }
@@ -141,10 +140,13 @@ div#menu ul li.bottom  {
 }
 
 #main {
-    height:95%;
+
 }
+
+
 #footer
-{height:5%;}
+{position:absolute;
+    bottom:0;}
 
 
 
@@ -311,33 +313,39 @@ div#menu ul li.bottom  {
     /*border-radius: 4px 4px 10px 10px;*/
 /*}*/
 
-/*.design-container {*/
-    /*position: absolute;*/
-    /*top: 180px;*/
-    /*bottom: 0;*/
-    /*right: 30px;*/
-    /*left: 30px;*/
-/*}*/
+.toolbar,row-fluid {
+    margin:10px;
+}
 
-/*.design-tile-list {*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*bottom: 0;*/
-/*}*/
+.design-container {
+
+    position: absolute;
+    top: 180px;
+    bottom: 0;
+    right: 0;
+    left: 10px;
+}
+
+.design-tile-list {
+overflow-x: scroll;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 
 /*creator*/
 /*#creator {*/
     /*margin: -10px -30px;*/
 /*}*/
 
-/*#motive{*/
-    /*float:left;*/
-    /*width:200px;*/
-    /*box-shadow: 0px 0px 10px inset;*/
-    /*background-color: #2f4f4f;*/
-/*}*/
+#motive{
+    float:left;
+    width:200px;
+    box-shadow: 0px 0px 10px inset;
+    background-color: #2f4f4f;
+}
 
 
 /*.dropzone {*/
@@ -366,12 +374,16 @@ div#menu ul li.bottom  {
     /*height: 600px;*/
 /*}*/
 
+div.design-tile-list ul.scroll-container {
+    list-style-type:none;
+}
 
-/*div.mot_list.tile-list ul.scroll-container {*/
-    /*margin:20px;*/
-    /*list-style-type: none;*/
-    /*height: 600px;*/
-/*}*/
+
+div.mot_list.tile-list ul.scroll-container {
+    margin:20px;
+    list-style-type: none;
+    height: 600px;
+}
 
 
 
