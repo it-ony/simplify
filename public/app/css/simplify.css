@@ -58,6 +58,7 @@ html, body, .stage {
     margin: 0 auto;
     text-align:center;
     height:80px;
+    list-style-type: none;
 }
 
 #menu ul li ul li a{color:#eeeeee;}
