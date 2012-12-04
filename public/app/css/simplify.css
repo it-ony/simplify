@@ -6,10 +6,9 @@ html, body, .stage {
     background-color: #EDEDED;
 }
 
-.span4 {margin-top:-10px;}
-.span8 {
-    margin-top:7px;
-   margin-right:-40px;
+.pull-right.search-query {
+    margin-left:100px;
+
 }
 
 #wrapper {
@@ -33,6 +32,7 @@ html, body, .stage {
 }
 
 #content {
+    margin:10px;
     position: absolute;
     left: 80px;
     right: 0;
@@ -99,8 +99,7 @@ html, body, .stage {
 }
 
 #menu ul li ul li a:hover {
-    border: 3px dashed #ccc;
-    border-radius:10px;
+
 
 
 }
@@ -134,7 +133,12 @@ li.collections a{
 
 }
 
-.statistics a:hover {margin-top:-30px;}
+li.logout a {
+    height:10px !important;
+    margin-top:-30px !important;
+}
+
+.statistics a:hover {margin-top:-30px;width:100px;}
 
 div#menu ul li.bottom  {
     position:absolute;
@@ -173,7 +177,7 @@ span.username {
     margin:0px;
 }
 
-div.toolbar.row-fluid {height:45px;border-bottom:1px solid grey;}
+div.toolbar.row-fluid {height:45px;}
 
 
 /*.app {*/
