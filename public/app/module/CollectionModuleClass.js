@@ -2,6 +2,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Shop", "flow"
     return ModuleBase.inherit('app.module.CollectionClass', {
 
         defaults: {
+            showTileList: true,
             collection: null,
             showProducts: true,
             selectedCollection: '{collectionList.selectedItems.at(0)}',
@@ -49,6 +50,21 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Shop", "flow"
                     collection.fetch(null, cb);
                 })
                 .exec(routeContext.callback);
-        }.async()
+        }.async(),
+
+        _showTileList: function(){
+            this.set('showTileList',true);
+        },
+        _showDataGrid: function(){
+            this.set('showTileList',false);
+        },
+        _startEdit: function(e){
+            e.target.addClass('edit');
+        },
+        _endEdit: function(e){
+            if(e.domEvent.keyCode === 13){
+                e.target.removeClass('edit');
+            }
+        }
     });
 });

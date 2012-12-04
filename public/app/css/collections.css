@@ -1,0 +1,97 @@
+.page-menu {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    height: 50px;
+}
+
+.page-menu-inner {
+    padding: 10px;
+}
+
+.page {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.page-left {
+    position: absolute;
+    left: 0;
+    width: 20%;
+    min-width: 200px;
+    bottom: 0;
+    top: 0;
+}
+
+.page-right {
+    position: absolute;
+    width: 80%;
+    bottom: 0;
+    top: 0;
+    right: 0;
+}
+
+#collectionList {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    bottom: 0;
+}
+
+
+ul.scroll-container {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#collectionList li {
+    width: 100%;
+    line-height: 50px;
+}
+
+.collection-item {
+    height: 50px;
+    line-height: 50px;
+}
+
+.collection-item a {
+    display: block;
+    line-height: inherit;
+}
+
+#collectionList li.active,
+.collection-item.active {
+    background-color: #f5f5f5;
+}
+
+#articleList {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.data-grid-body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30px;
+    bottom: 0;
+}
+
+
+.editor input,
+.editor.edit div{
+    display: none;
+}
+
+.editor.edit input,
+.editor div{
+    display: block;
+}
