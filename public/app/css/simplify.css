@@ -42,7 +42,7 @@ html, body, .stage {
 
 
 
-#menu ul, div#menu ul li.bottom ul {
+#menu ul{
 
     font-size:.95em;
     color:white;
@@ -54,7 +54,7 @@ html, body, .stage {
     height:100%;
 }
 
-#menu ul li {
+#menu ul li , div#menu ul li.bottom ul li.profile {
     margin: 0 auto;
     text-align:center;
     height:80px;
