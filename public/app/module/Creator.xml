@@ -11,8 +11,8 @@
                              data="{designs}"
                              heightUpdatePolicy="in" widthUpdatePolicy="in"
                              prefetchItemCount="10"
-                             min-height="300"
-                             height="300"
+                             min-height="150"
+                             height="150"
                              selectionMode="single"
                              itemWidth="150" itemHeight="150"
                              horizontalGap="20" verticalGap="1" cols="1">

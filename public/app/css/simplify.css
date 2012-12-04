@@ -191,14 +191,14 @@ html, body {
 
 #motive{
     float:left;
-    width:180px;
+    width:200px;
     box-shadow: 0px 0px 10px inset;
     background-color: #2f4f4f;
 }
 
 
 .dropzone {
-    margin: 10px;
+    margin: 25px 20px 20px 20px;
     color: white;
     height:150px;
     width:150px;
@@ -218,14 +218,19 @@ p.big {
     margin:10px;
 }
 
-.mot_list {
+div.mot_list.tile-list ul
+{
+    height: 600px;
+}
+
+
+div.mot_list.tile-list ul.scroll-container {
+    margin:20px;
     list-style-type: none;
     height: 600px;
 }
 
-ul.scroll-container {
-    margin:20px;
-}
+
 
 ul.cat_list {
 
@@ -245,12 +250,19 @@ li.cat_img  {
     float:left;
 }
 
-li.mot_img a:hover {
-
-    padding: 20px;
+div.mot_list.tile-list ul.scroll-container li {
+    padding: 20px 30px 20px 20px;
     margin-left:-20px;
+}
+
+div.mot_list.tile-list ul.scroll-container li.active {
     background-color:#EEE ;
 }
+
+div.mot_list.tile-list ul.scroll-container li img {
+    padding:10px 0px 20px 0px;
+}
+
 
 #horizontal_catslider{
     float:right;
