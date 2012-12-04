@@ -7,9 +7,9 @@
             <div id="motive">
                 <div class="dropzone"><p class="big">+</p><p>drop your motive here</p></div>
 
-                <ui:TileList cid="designList" class="mot_list"
+                <ui:TileList cid="designList" class="design-list"
                              data="{designs}"
-                             heightUpdatePolicy="in" widthUpdatePolicy="in"
+                             heightUpdatePolicy="in"
                              prefetchItemCount="10"
                              min-height="150"
                              height="150"
@@ -17,7 +17,7 @@
                              itemWidth="150" itemHeight="150"
                              horizontalGap="20" verticalGap="1" cols="1">
                     <js:Template name="renderer">
-                        <view:DesignImage class="mot_img" width="150" height="150" design="{item}"/>
+                        <view:DesignImage class="mot_img" width="100" height="100" design="{item}"/>
                     </js:Template>
                 </ui:TileList>
                 <!--<ul class="mot_list">-->
@@ -31,13 +31,23 @@
             </div>
             <div id="content_cat">
                 <!--<view:DesignImage width="300" height="300" design="{designList.selectedItems.at(0)}"/>-->
+
                 <div id="horizontal_catslider">
-                    <ul class="cat_list">
-                        <li class="cat_img"><a href="#"> </a></li>
-                        <li class="cat_img"></li>
-                        <li class="cat_img"></li>
-                        <li class="cat_img"></li>
-                    </ul>
+                    <ui:TileList cid="productTypeList" class="product-type-list"
+                                 data="{productTypes}"
+                                 prefetchItemCount="10"
+                                 min-height="150"
+                                 height="150"
+                                 width="800"
+                                 rows="1"
+                                 selectionMode="single"
+                                 itemWidth="150" itemHeight="150"
+                                 widthUpdatePolicy="in"
+                                 horizontalGap="20" verticalGap="1" scrollDirection="horizontal">
+                        <js:Template name="renderer">
+                            <view:ProductTypeImage width="100" height="100" productType="{item}"/>
+                        </js:Template>
+                    </ui:TileList>
                 </div>
                 <div id="cat_content"></div>
             </div>

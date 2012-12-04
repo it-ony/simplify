@@ -5,6 +5,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "flow"], function(ModuleB
             // focused collection
             collection: null,
             designs: "{user.designs}",
+            productTypes: "{user.productTypes}",
 
             // the product
             product: null
