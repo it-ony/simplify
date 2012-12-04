@@ -14,14 +14,13 @@ define(['js/core/Module', "js/core/I18n", "sprd/model/Session", "js/data/LocalSt
 
         start: function(callback, routeContext) {
 
-            if (!this.$.session.isNew()) {
+            if (this.$.session.isCreated()) {
                 this._fetchUserAndAddForInjection(function() {
                     routeContext.router.navigate("m", function () {
                         routeContext.callback();
                         callback();
                     });
                 });
-
             } else {
                 this.callBase();
             }
