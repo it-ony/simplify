@@ -72,7 +72,6 @@
                         <ui:DataGridColumn title="picture" width="65%">
                             <js:Template name="cell">
                                 <sprdView:ArticleImage class="composition" article="{$dataItem.data}"
-                                                       type="composition"
                                                        width="50" height="50"/>
                             </js:Template>
                         </ui:DataGridColumn>

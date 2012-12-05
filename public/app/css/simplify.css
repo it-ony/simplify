@@ -250,7 +250,7 @@ div.toolbar.row-fluid {
 /*}*/
 
 /** IMAGE UPLOAD **/
-div.image-upload {
+.image-upload {
     background: #2c2e34;
     padding: 10px;
     min-height: 80px;
@@ -339,11 +339,12 @@ div.image-upload {
 
 .design-container {
     position: absolute;
-    top: 250px;
+    top: 180px;
     bottom: 0;
     right: 0;
     left: 10px;
 }
+
 
 .design-tile-list {
     overflow-x: scroll;
@@ -352,6 +353,32 @@ div.image-upload {
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+
+
+.design-tile {
+    background: white;
+    padding: 10px;
+    border: 1px solid #ECECEC;
+    position: relative;
+}
+
+.design-tile-name {
+    max-width: 120px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #666;
+}
+
+.design-tile-status {
+
+}
+
+.active .design-tile {
+    background:  #adff2f;
 }
 
 /*creator*/

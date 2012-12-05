@@ -3,6 +3,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "flow", 'sprd/model/Shop'
 
         defaults: {
             designs: "{user.designs}",
+            selectedDesign: null,
             searchTerm: "",
             progress: 0,
 
@@ -47,6 +48,17 @@ define(['app/module/ModuleBase', "js/data/DataSource", "flow", 'sprd/model/Shop'
             }
         },
 
+        showDesign: function(routeContext, designId){
+            var design = this.$.designs.createItem(designId);
+            this.set('selectedDesign', design);
+
+            var self = this;
+            this.$.designDialog.showModal(function(){
+                self.$stage.$history.navigate('m/design');
+            });
+
+            design.fetch(null, routeContext.callback);
+        }.async(),
 
         _handleDesignSearch: function(e){
 

@@ -1,6 +1,11 @@
 <module:DesignModuleClass xmlns="http://www.w3.org/1999/xhtml"
-                    xmlns:module="app.module" xmlns:js="js.core"
-                    xmlns:ui="js.ui" xmlns:sprdView="sprd.view" class="design-module">
+                          xmlns:module="app.module" xmlns:js="js.core"
+                          xmlns:ui="js.ui" xmlns:sprdView="sprd.view" class="design-module" xmlns:conf="js.conf"
+                          xmlns:field="js.ui.field">
+
+    <js:Router>
+        <conf:RouteConfiguration route="^m/design/(\d+)$" onexec="showDesign"/>
+    </js:Router>
 
     <js:Content name="main">
         <div class="toolbar row-fluid">
@@ -23,15 +28,41 @@
                          heightUpdatePolicy="in" widthUpdatePolicy="in"
                          prefetchItemCount="10"
                          min-height="300"
-                         itemWidth="{itemSize}" itemHeight="{itemSize}"
+                         itemWidth="{itemSize}" itemHeight="200"
                          horizontalGap="{gap}" verticalGap="50" cols="{cols}">
                 <js:Template name="renderer">
-                    <sprdView:DesignImage width="150" height="150" design="{item}"/>
+                    <div class="design-tile">
+                        <sprdView:DesignImage width="150" height="150" design="{item}"/>
+                        <div>
+                            <a class="design-tile-name" href="m/design/{item.id}">
+                                {item.name}
+                            </a>
+                            <i class="icon-ok" />
+                        </div>
+                    </div>
                 </js:Template>
             </ui:TileList>
         </div>
     </js:Content>
     <js:Content name="footer">
         <h1>Footer</h1>
+    </js:Content>
+    <js:Content>
+        <ui:Dialog class="modal" cid="designDialog" title="{selectedDesign.name}">
+            <js:Content name="body">
+                <div class="row">
+                    <div class="span3">
+                        <sprdView:DesignImage width="200" height="200" design="{selectedDesign}"/>
+                    </div>
+                    <div class="span4" >
+                        <field:Text label="Name" value="{{selectedDesign.name}}" />
+                        <!--<field:Text label="Commision" value="{{selectedDesign.price}}" />-->
+                    </div>
+                </div>
+            </js:Content>
+            <js:Content name="footer">
+                <ui:Button label="Save" class="pull-right" />
+            </js:Content>
+        </ui:Dialog>
     </js:Content>
 </module:DesignModuleClass>
