@@ -41,7 +41,7 @@
                             </ui:ButtonGroup>
                         </div>
                         <div class="pull-left">
-                            <ui:Button iconClass="icon icon-plus" label="Add collection"/>
+                            <h1>{selectedCollection.name}</h1>
                         </div>
                     </div>
 

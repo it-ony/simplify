@@ -2,7 +2,7 @@ html, body, .stage {
     margin: 0;
     width: 100%;
     height: 100%;
-    background-color: #EDEDED;
+    background-color: #EEEEEE;
 }
 
 a:hover {
@@ -160,6 +160,14 @@ a:hover {
     padding: 10px;
     position: relative;
     height: 100%;
+}
+
+.module .header h1 {
+    padding-left: 40px;
+    /* TODO: add collection image */
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0;
 }
 
 .module .sidebar > .content,
