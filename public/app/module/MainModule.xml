@@ -9,46 +9,44 @@
 
     <js:Content name="module">
         <div id="menu">
-            <ul>
-                <li class="top">
-                    <ul>
-                        <li class="logo">
-                            <a href="m" />
-                        </li>
-                        <li class="statistics">
-                            <a href="m/statistic">Statistics</a>
-                        </li>
-                        <li class="designs">
-                            <a href="m/design">Designs</a>
-                        </li>
-                        <li class="create">
-                            <a href="m/create">Create</a>
-                        </li>
-                        <li class="create2">
-                            <a href="m/creator">Creator 2</a>
-                        </li>
-                        <li class="collections">
-                            <a href="m/collections">Collections</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="bottom">
-                    <ul>
-                        <li class="profile">
-                            <div>
-                                <sprdView:UserImage user="{user}" width="50" height="50"/>
-                                <span class="username">{user.name}</span>
-                            </div>
-                        </li>
-                        <li class="logout">
-                            <a onclick="logout">Logout</a>
-                        </li>
-                        <li class="info">
-                            <a />
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="logo">
+                <a href="m">Spreadshirt</a>
+            </div>
+            <div class="top">
+                <ul>
+                    <li class="statistics">
+                        <a href="m/statistic">Statistics</a>
+                    </li>
+                    <li class="designs">
+                        <a href="m/design">Designs</a>
+                    </li>
+                    <li class="create">
+                        <a href="m/create">Create</a>
+                    </li>
+                    <li class="create2">
+                        <a href="m/creator">Creator 2</a>
+                    </li>
+                    <li class="collections">
+                        <a href="m/collections">Collections</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom">
+                <ul>
+                    <li class="profile">
+                        <div>
+                            <sprdView:UserImage user="{user}" width="50" height="50"/>
+                            <span class="username">{user.name}</span>
+                        </div>
+                    </li>
+                    <li class="logout">
+                        <a onclick="logout">Logout</a>
+                    </li>
+                    <li class="info">
+                        <a/>
+                    </li>
+                </ul>
+            </div>
         </div>
         <js:ModuleLoader router="{router}" id="content">
             <conf:ModuleConfiguration name="home" moduleClass="app.module.HomeModule" route="^m\/home.*$"/>
