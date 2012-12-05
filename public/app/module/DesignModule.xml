@@ -32,31 +32,18 @@
                              itemWidth="{itemSize}" itemHeight="{itemSize}"
                              horizontalGap="{gap}" verticalGap="50" cols="{cols}">
                     <js:Template name="renderer">
-                        <sprdView:DesignImage width="150" height="150" design="{item}"/>
+                        <div class="design-tile">
+                            <sprdView:DesignImage width="150" height="150" design="{item}"/>
+                            <div>
+                                <a class="design-tile-name" href="m/design/{item.id}">
+                                    {item.name}
+                                </a>
+                                <i class="icon-ok"/>
+                            </div>
+                        </div>
                     </js:Template>
                 </ui:TileList>
             </div>
-        </div>
-        <div class="design-container">
-            <ui:TileList cid="designList" class="design-tile-list"
-                         data="{designs()}"
-                         heightUpdatePolicy="in" widthUpdatePolicy="in"
-                         prefetchItemCount="10"
-                         min-height="300"
-                         itemWidth="{itemSize}" itemHeight="200"
-                         horizontalGap="{gap}" verticalGap="50" cols="{cols}">
-                <js:Template name="renderer">
-                    <div class="design-tile">
-                        <sprdView:DesignImage width="150" height="150" design="{item}"/>
-                        <div>
-                            <a class="design-tile-name" href="m/design/{item.id}">
-                                {item.name}
-                            </a>
-                            <i class="icon-ok" />
-                        </div>
-                    </div>
-                </js:Template>
-            </ui:TileList>
         </div>
     </js:Content>
     <js:Content name="footer">
