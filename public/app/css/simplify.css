@@ -146,7 +146,11 @@ a:hover {
 .module .sidebar > .header,
 .module .module-content > .header {
     height: 53px;
-    border-bottom: 1px solid #1f1f1f;
+    border-bottom: 1px none;
+}
+
+.module .sidebar > .header {
+    border-bottom: 1px solid #d4d4d4;
 }
 
 .module .module-content > .header > div,
