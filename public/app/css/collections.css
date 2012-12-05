@@ -16,6 +16,11 @@
     /* TODO: add collection icon in front */
 }
 
+#collection-module .content > div > div {
+    height: 100%;
+    position: relative;
+}
+
 #articleList {
     position: absolute;
     top: 0;
