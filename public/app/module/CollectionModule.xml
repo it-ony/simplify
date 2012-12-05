@@ -106,7 +106,4 @@
 
         </div>
     </js:Content>
-    <js:Content name="footer">
-        <h1>Footer</h1>
-    </js:Content>
 </module:CollectionModuleClass>

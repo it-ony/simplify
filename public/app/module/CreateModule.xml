@@ -49,9 +49,4 @@
         </div>
 
     </js:Content>
-    <js:Content name="footer">
-        <p>
-            Some footer notice here. Maybe help.
-        </p>
-    </js:Content>
 </module:CreateModuleClass>
