@@ -154,6 +154,8 @@ a:hover {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     padding: 10px;
+    position: relative;
+    height: 100%;
 }
 
 .module .sidebar > .content,
