@@ -159,12 +159,19 @@ span.username {
 }
 
 #main {
+    box-sizing: border-box;
     margin: 0;
+    padding: 10px 30px;
+    height: 100%;
+}
+
+#main > div {
+    position: relative;
+    min-height: 100%;
 }
 
 div.toolbar.row-fluid {
     height: 45px;
-    border-bottom: 1px solid grey;
 }
 
 /*.app {*/
@@ -255,13 +262,11 @@ div.toolbar.row-fluid {
     max-height: 200px;
     overflow: auto;
     position: relative;
+    border-radius: 20px;
 }
 
 .image-upload .upload-notice {
-    top: 70px;
-    background-color: #308726;
     border-radius: 20px;
-    border: 3px dashed white;
     text-align: center;
     color: #E7E7E7;
     font-size: 18px;
