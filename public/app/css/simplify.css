@@ -94,12 +94,15 @@ a:hover {
 #menu .bottom {
     position: absolute;
     bottom: 0;
+    width: 100%;
     background: inherit;
 }
 
 #menu .profile .sprd-image {
     border: 3px solid #5aaf0b;
     border-radius: 3px;
+    display: block !important;
+    margin: 0 auto;
 }
 
 #menu .info a {
