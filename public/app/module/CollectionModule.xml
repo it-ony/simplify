@@ -9,22 +9,12 @@
     </js:Router>
 
     <js:Content name="main">
-        <div id="collection-module">
-            <div class="page-menu">
-                <div class="page-menu-inner">
-                    <div class="pull-right">
-                        <ui:ButtonGroup>
-                            <ui:Button iconClass="icon-th-large" selected="{showTileList}" onclick="_showTileList"/>
-                            <ui:Button iconClass="icon-list" selected="{not(showTileList)}" onclick="_showDataGrid"/>
-                        </ui:ButtonGroup>
-                    </div>
-                    <div class="pull-left">
-                        <ui:Button iconClass="icon icon-plus" label="Add collection"/>
-                    </div>
+        <div id="collection-module" class="module sidebar">
+            <div class="sidebar">
+                <div class="header">
+                    TODO
                 </div>
-            </div>
-            <div class="page">
-                <div class="page-left">
+                <div class="content">
                     <div class="collection-item all-products" selected="{showProducts}">
                         <a href="/m/collections/products">Products</a>
                     </div>
@@ -32,7 +22,7 @@
                                  heightUpdatePolicy="in"
                                  widthUpdatePolicy="in"
                                  data="{user.shops}"
-                                 itemHeight="50" itemWidth="null" horizontalGap="0"
+                                 itemHeight="53" itemWidth="null" horizontalGap="0"
                                  verticalGap="1" cols="1" prefetchItemCount="6"
                                  selectionMode="">
                         <js:Template name="renderer">
@@ -40,7 +30,23 @@
                         </js:Template>
                     </ui:TileList>
                 </div>
-                <div class="page-right">
+            </div>
+            <div class="module-content">
+                <div class="header">
+                    <div class="row-fluid">
+                        <div class="pull-right">
+                            <ui:ButtonGroup>
+                                <ui:Button iconClass="icon-th-large" selected="{showTileList}" onclick="_showTileList"/>
+                                <ui:Button iconClass="icon-list" selected="{not(showTileList)}" onclick="_showDataGrid"/>
+                            </ui:ButtonGroup>
+                        </div>
+                        <div class="pull-left">
+                            <ui:Button iconClass="icon icon-plus" label="Add collection"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="content">
                     <div visible="{not(showProducts)}">
                         <ui:TileList
                                 visible="{showTileList}"
@@ -81,6 +87,7 @@
                             </ui:DataGridColumn>
                         </ui:DataGrid>
                     </div>
+                    <!-- TODO: use one TileList and one DataGrid -->
                     <div visible="{showProducts}">
                         <ui:TileList
                                 visible="{showTileList}"
@@ -102,10 +109,7 @@
                         </ui:TileList>
 
                     </div>
-
                 </div>
-
-
             </div>
         </div>
     </js:Content>
