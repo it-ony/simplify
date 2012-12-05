@@ -3,7 +3,7 @@
                     xmlns:ui="js.ui" xmlns:view="sprd.view">
 
     <js:Content name="main">
-        <div id="create">
+        <div id="create-module">
             <div class="toolbar row-fluid">
                 <div class="span12">
                     <h1>Create</h1>
