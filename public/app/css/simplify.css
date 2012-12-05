@@ -9,6 +9,13 @@ a:hover {
     text-decoration: none;
 }
 
+.tile-list ul,
+.data-grid ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 #wrapper {
     position: absolute;
     left: 0;
@@ -33,7 +40,10 @@ a:hover {
     left: 90px;
     right: 0;
     height: 100%;
-    visibility: hidden;
+}
+
+#main {
+    height: 100%;
 }
 
 /*** MENU ***/
@@ -96,4 +106,62 @@ a:hover {
     display: block;
     height: 20px;
     /*** TODO: add info icon ***/
+}
+
+/*** MODULES ***/
+
+.module {
+    height: 100%;
+}
+
+.module .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.module .module-content,
+.module .sidebar {
+    min-height: 100%;
+    position: relative;
+}
+
+.module .sidebar {
+    display: none;
+    width: 200px;
+    border-right: 1px solid gray;
+}
+
+.module.sidebar .sidebar {
+    display: block;
+}
+
+.module.sidebar .module-content {
+    position: absolute;
+    left: 200px;
+    top: 0;
+    right: 0;
+}
+
+.module .sidebar > .header,
+.module .module-content > .header {
+    height: 53px;
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.module .module-content > .header > div,
+.module .module-content > .content > div {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 10px;
+}
+
+.module .sidebar > .content,
+.module .module-content > .content {
+    position: absolute;
+    top: 54px;
+    width: 100%;
+    bottom: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
