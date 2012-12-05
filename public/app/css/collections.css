@@ -16,6 +16,14 @@
     /* TODO: add collection icon in front */
 }
 
+#articleList {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .browser #collection-module .all-products a:hover,
 .browser #collection-module .sidebar .tile-list li:hover {
     background-color: #5aaf0b;
