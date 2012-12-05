@@ -4,23 +4,25 @@
     <js:Injection cid="injection" />
 
     <js:Content name="module">
-        <ui:Dialog title="{i18n.t('login.title')}" class="modal">
-            <js:Content name="body">
+        <div id="login-module">
+            <ui:Dialog title="{i18n.t('login.title')}" class="modal">
+                <js:Content name="body">
+                    <form class="form-horizontal" onsubmit="login">
+                        <field:Text inputId="username" label="{i18n.t('login.username')}" value="{{session.username}}"/>
+                        <field:Password inputId="password" label="{i18n.t('login.password')}" value="{{session.password}}"/>
 
-                <form class="form-horizontal" onsubmit="login">
-                    <field:Text label="{i18n.t('login.username')}" value="{{session.username}}"/>
-                    <field:Password label="{i18n.t('login.password')}" value="{{session.password}}"/>
+                        <ui:Field>
+                            <ui:Checkbox label="{i18n.t('login.rememberLogin')}" checked="{{rememberSession}}"/>
+                        </ui:Field>
+                    </form>
 
-                    <ui:Field>
-                        <ui:Checkbox label="{i18n.t('login.rememberLogin')}" checked="{{rememberSession}}"/>
-                    </ui:Field>
-                </form>
+                </js:Content>
+                <js:Content name="footer">
+                    <ui:Button type="success" onclick="login" label="{i18n.t('login.login')}"/>
+                </js:Content>
+            </ui:Dialog>
+        </div>
 
-            </js:Content>
-            <js:Content name="footer">
-                <ui:Button type="success" onclick="login" label="{i18n.t('login.login')}"/>
-            </js:Content>
-        </ui:Dialog>
     </js:Content>
 
 
