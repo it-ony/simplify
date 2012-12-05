@@ -12,7 +12,7 @@
         <div id="collection-module" class="module sidebar">
             <div class="sidebar">
                 <div class="header">
-                    TODO
+                    New Collection
                 </div>
                 <div class="content">
                     <div class="collection-item all-products" selected="{showProducts}">
@@ -47,67 +47,69 @@
 
                 </div>
                 <div class="content">
-                    <div visible="{not(showProducts)}">
-                        <ui:TileList
-                                visible="{showTileList}"
-                                cid="articleList" id="articleList"
-                                heightUpdatePolicy="in"
-                                widthUpdatePolicy="in"
-                                data="{collection.articles}"
-                                itemWidth="150" itemHeight="150" horizontalGap="15"
-                                verticalGap="50" cols="5" prefetchItemCount="6">
-                            <js:Template name="renderer">
-                                <div>
-                                    <sprdView:ArticleImage class="composition" article="{item}"
-                                                           width="120" height="120"/>
+                    <div>
+                        <div visible="{not(showProducts)}">
+                            <ui:TileList
+                                    visible="{showTileList}"
+                                    cid="articleList" id="articleList"
+                                    heightUpdatePolicy="in"
+                                    widthUpdatePolicy="in"
+                                    data="{collection.articles}"
+                                    itemWidth="150" itemHeight="150" horizontalGap="15"
+                                    verticalGap="50" cols="5" prefetchItemCount="6">
+                                <js:Template name="renderer">
                                     <div>
-                                        {item.name}
-                                    </div>
-                                </div>
-                            </js:Template>
-                        </ui:TileList>
-                        <ui:DataGrid data="{collection.articles}" visible="{not(showTileList)}" rowHeight="70">
-                            <ui:DataGridColumn title="id" path="id" width="5%"/>
-                            <ui:DataGridColumn title="name" width="30%">
-                                <js:Template name="cell">
-                                    <div class="editor" ondblclick="_startEdit" onkeyup="_endEdit">
-                                        <div>{$dataItem.data.name}
-                                            <i class="icon-edit"/>
+                                        <sprdView:ArticleImage class="composition" article="{item}"
+                                                               width="120" height="120"/>
+                                        <div>
+                                            {item.name}
                                         </div>
-                                        <input type="text" value="{{$dataItem.data.name}}"/>
                                     </div>
                                 </js:Template>
-                            </ui:DataGridColumn>
-                            <ui:DataGridColumn title="picture" width="65%">
-                                <js:Template name="cell">
-                                    <sprdView:ArticleImage class="composition" article="{$dataItem.data}"
-                                                           type="composition"
-                                                           width="50" height="50"/>
-                                </js:Template>
-                            </ui:DataGridColumn>
-                        </ui:DataGrid>
-                    </div>
-                    <!-- TODO: use one TileList and one DataGrid -->
-                    <div visible="{showProducts}">
-                        <ui:TileList
-                                visible="{showTileList}"
-                                cid="productList" id="articleList"
-                                heightUpdatePolicy="in"
-                                widthUpdatePolicy="in"
-                                data="{user.products}"
-                                itemWidth="150" itemHeight="150" horizontalGap="15"
-                                verticalGap="50" cols="5" prefetchItemCount="6">
-                            <js:Template name="renderer">
-                                <div>
-                                    <sprdView:ArticleImage class="composition" article="{item}"
-                                                           width="120" height="120"/>
+                            </ui:TileList>
+                            <ui:DataGrid data="{collection.articles}" visible="{not(showTileList)}" rowHeight="70">
+                                <ui:DataGridColumn title="id" path="id" width="5%"/>
+                                <ui:DataGridColumn title="name" width="30%">
+                                    <js:Template name="cell">
+                                        <div class="editor" ondblclick="_startEdit" onkeyup="_endEdit">
+                                            <div>{$dataItem.data.name}
+                                                <i class="icon-edit"/>
+                                            </div>
+                                            <input type="text" value="{{$dataItem.data.name}}"/>
+                                        </div>
+                                    </js:Template>
+                                </ui:DataGridColumn>
+                                <ui:DataGridColumn title="picture" width="65%">
+                                    <js:Template name="cell">
+                                        <sprdView:ArticleImage class="composition" article="{$dataItem.data}"
+                                                               type="composition"
+                                                               width="50" height="50"/>
+                                    </js:Template>
+                                </ui:DataGridColumn>
+                            </ui:DataGrid>
+                        </div>
+                        <!-- TODO: use one TileList and one DataGrid -->
+                        <div visible="{showProducts}">
+                            <ui:TileList
+                                    visible="{showTileList}"
+                                    cid="productList" id="articleList"
+                                    heightUpdatePolicy="in"
+                                    widthUpdatePolicy="in"
+                                    data="{user.products}"
+                                    itemWidth="150" itemHeight="150" horizontalGap="15"
+                                    verticalGap="50" cols="5" prefetchItemCount="6">
+                                <js:Template name="renderer">
                                     <div>
-                                        {item.name}
+                                        <sprdView:ArticleImage class="composition" article="{item}"
+                                                               width="120" height="120"/>
+                                        <div>
+                                            {item.name}
+                                        </div>
                                     </div>
-                                </div>
-                            </js:Template>
-                        </ui:TileList>
+                                </js:Template>
+                            </ui:TileList>
 
+                        </div>
                     </div>
                 </div>
             </div>
