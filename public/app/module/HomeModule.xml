@@ -9,7 +9,9 @@
     
                 <sprdView:ImageUpload notice="Drop your files here." uploadContext="{user}"/>
             </div>
+
             <ui:Button label="Select" href="#/m/product"/>
+
         </div>
 
     </js:Content>
