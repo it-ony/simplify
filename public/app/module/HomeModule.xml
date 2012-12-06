@@ -8,8 +8,6 @@
                 <div class="header"> <h1>Design your own shirt</h1></div>
     
                 <sprdView:ImageUpload notice="Drop your files here." uploadContext="{user}"/>
-
-                <h3>Drop your design here</h3>
             </div>
             <ui:Button label="Select" href="#/m/product"/>
         </div>
