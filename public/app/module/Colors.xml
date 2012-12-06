@@ -1,0 +1,36 @@
+<module:CreatorClass xmlns="http://www.w3.org/1999/xhtml"
+                     xmlns:module="app.module" xmlns:js="js.core"
+                     xmlns:ui="js.ui" xmlns:view="sprd.view">
+
+    <js:Content name="main">
+        <div id="colors-module">
+
+            <h1>Select the colors you like</h1>
+
+            <div id="content_cat">
+                <!--<view:DesignImage width="300" height="300" design="{designList.selectedItems.at(0)}"/>-->
+
+                <div id="horizontal_catslider">
+                    <ui:TileList cid="productTypeList" class="product-type-list"
+                                 data="{productTypes}"
+                                 prefetchItemCount="10"
+                                 min-height="150"
+                                 height="320"
+                                 width="800"
+                                 rows="2"
+                                 selectionMode="multiple"
+                                 itemWidth="150" itemHeight="150"
+                                 widthUpdatePolicy="in"
+                                 horizontalGap="20" verticalGap="1" scrollDirection="horizontal">
+                        <js:Template name="renderer">
+                            <view:ProductTypeImage width="100" height="100" productType="{item}"/>
+                        </js:Template>
+                    </ui:TileList>
+                </div>
+                <div id="cat_content"></div>
+            </div>
+
+
+        </div>
+    </js:Content>
+</module:CreatorClass>
