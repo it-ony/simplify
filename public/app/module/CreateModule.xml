@@ -1,49 +1,88 @@
 <module:CreateModuleClass xmlns="http://www.w3.org/1999/xhtml"
-                    xmlns:module="app.module" xmlns:js="js.core"
-                    xmlns:ui="js.ui" xmlns:view="sprd.view">
+                          xmlns:module="app.module" xmlns:js="js.core"
+                          xmlns:ui="js.ui" xmlns:view="sprd.view">
 
     <js:Content name="main">
-        <div id="create-module">
-            <div class="toolbar row-fluid">
-                <div class="span12">
-                    <h1>Create</h1>
+        <div id="create-module" class="module sidebar">
+            <div class="sidebar">
+                <div class="header">
+                    Upload Design
+                </div>
+                <div class="content design-container">
+                    <ui:TileList cid="designList" class="design-tile-list"
+                                 data="{designs()}"
+                                 heightUpdatePolicy="in" widthUpdatePolicy="in"
+                                 prefetchItemCount="10"
+                                 min-height="300"
+                                 itemWidth="{itemSize}" itemHeight="{itemSize}"
+                                 horizontalGap="{gap}" verticalGap="50" cols="{cols}">
+                        <js:Template name="renderer">
+                            <div class="design-tile">
+                                <view:DesignImage width="100" height="100" design="{item}"/>
+                                <div>
+                                    <a class="design-tile-name" href="m/design/{item.id}">
+                                        {item.name}
+                                    </a>
+                                    <i class="icon-ok"/>
+                                </div>
+                            </div>
+                        </js:Template>
+                    </ui:TileList>
                 </div>
             </div>
-            <div class="row-fluid panel create">
-                <div class="span12">
+            <div class="module-content">
+                <div class="header">
                     <div class="row-fluid">
-                        <div class="span6">
-                            JS Designer goes here
+                        <div class="pull-right">
+                            <ui:ButtonGroup>
+                                <ui:Button iconClass="icon-globe"/>
+                            </ui:ButtonGroup>
                         </div>
-                        <div class="span6">
-                            <div>
-                                <h4>Colors</h4>
-                                <view:ColorSelector product="{product}" selectedItem="{{product.appearance}}" colorWidth="28"/>
-                            </div>
-                            <div>
-                                <h4>Product types</h4>
-                            </div>
-                            <div class="buttons">
-                                <ui:Button label="T-Shirt designer" type="warning"/>
-                                <ui:Button label="Create product" type="success"/>
-                            </div>
+                        <div class="pull-left">
+                            <h1>Create</h1>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row-fluid">
-                <div class="span12">
-                    <ui:TabView>
-                        <ui:Tab title="Positions">
-                            Shows a list of default design positions
-                        </ui:Tab>
-                        <ui:Tab title="Product types">
-                            Product types shown here
-                        </ui:Tab>
-                        <ui:Tab title="Restrictions">
-                            Shows a list of restrictions
-                        </ui:Tab>
-                    </ui:TabView>
+                <div class="content">
+                    <div>
+                        <div class="row-fluid panel create">
+                            <div class="span12">
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        JS Designer goes here
+                                    </div>
+                                    <div class="span6">
+                                        <div>
+                                            <h4>Colors</h4>
+                                            <view:ColorSelector product="{product}" selectedItem="{{product.appearance}}" colorWidth="28"/>
+                                        </div>
+                                        <div>
+                                            <h4>Product types</h4>
+                                        </div>
+                                        <div class="buttons">
+                                            <ui:Button label="T-Shirt designer" type="warning"/>
+                                            <ui:Button label="Create product" type="success"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <ui:TabView>
+                                    <ui:Tab title="Positions">
+                                        Shows a list of default design positions
+                                    </ui:Tab>
+                                    <ui:Tab title="Product types">
+                                        Product types shown here
+                                    </ui:Tab>
+                                    <ui:Tab title="Restrictions">
+                                        Shows a list of restrictions
+                                    </ui:Tab>
+                                </ui:TabView>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
