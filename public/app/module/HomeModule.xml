@@ -1,18 +1,15 @@
 <module:HomeModuleClass xmlns="http://www.w3.org/1999/xhtml"
                   xmlns:module="app.module" xmlns:js="js.core"
-                  xmlns:sprdView="sprd.view"  xmlns:ui="js.ui"
+                  xmlns:sprdView="sprd.view"
                     >
     <js:Content name="main">
         <div id="home-module">
-            <h1>Design your own shirt</h1>
+            <div id="one">
+            <div class="header"> <h1>Design your own shirt</h1></div>
 
             <sprdView:ImageUpload notice="Drop your files here." uploadContext="{user}"/>
 
-            <h3>Drop your design here</h3>
-
-            <ui:Button label="Select" href="#/m/product"/>
-
-
+            </div>
         </div>
 
     </js:Content>

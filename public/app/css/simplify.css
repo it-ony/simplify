@@ -256,22 +256,37 @@ div.toolbar.row-fluid {
 /*}*/
 
 /** IMAGE UPLOAD **/
+
+#one {
+    margin:0 auto;
+    width: 80%;
+
+}
+
+.header {
+    margin:0px 0px 20px 0px;
+}
+
 .image-upload {
-    width: 260px;
-    background: #2c2e34;
+    height:500px;
+    bottom:100px;
+    margin:0 auto;
+    background: #C10098;
     padding: 10px;
-    border-radius: 20px;
 }
 
 .image-upload .upload-notice {
-    border-radius: 20px;
+    background: url(../img/plus.png) no-repeat top center ;
+    background-size: 200px;
     text-align: center;
+    margin:100px 20px;
     color: #E7E7E7;
     font-size: 18px;
-    line-height: 100px;
-    width: 90%;
-    left: 50%;
+    line-height: 500px;
+    height:100%;
 }
+
+
 
 .image-upload ul {
     margin: 0;
