@@ -1,3 +1,35 @@
 /*** CREATE ***/
 
+#create-module {
+    position: relative;
+}
 
+#create-module .sidebar {
+    overflow: hidden;
+}
+
+@media (max-width: 939px) {
+    #create-module .sidebar {
+        display: none;
+    }
+
+    #create-module .module-content {
+        left: 0;
+    }
+}
+
+@media (min-width: 1270px) {
+    #create-module .sidebar {
+        border: 1px solid red;
+        right: 980px;
+        left: 0;
+        width: auto;
+        position: absolute;
+    }
+
+    #create-module .module-content {
+        left: auto;
+        right: 0;
+        width: 980px;
+    }
+}
