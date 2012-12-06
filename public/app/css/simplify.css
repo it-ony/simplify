@@ -298,6 +298,12 @@ div.toolbar.row-fluid {
     box-shadow: 1px 1px 2px #888;
 }
 
+#colors-module a.btn {
+    margin-top: 20px;
+}
+
+
+
 /*.panel {*/
 /*background: white;*/
 /*padding: 10px;*/

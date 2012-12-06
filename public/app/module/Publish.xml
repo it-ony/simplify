@@ -1,0 +1,10 @@
+<module:CreatorClass xmlns="http://www.w3.org/1999/xhtml"
+                     xmlns:module="app.module" xmlns:js="js.core"
+                     xmlns:ui="js.ui" xmlns:view="sprd.view">
+
+    <js:Content name="main">
+        <div id="colors-module">
+            <h1>Buy your product</h1>
+        </div>
+    </js:Content>
+</module:CreatorClass>

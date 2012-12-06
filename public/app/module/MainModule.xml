@@ -57,6 +57,7 @@
             <conf:ModuleConfiguration name="create" moduleClass="app.module.CreateModule" route="^m\/create.*$"/>
             <conf:ModuleConfiguration name="creator" moduleClass="app.module.Creator" route="^m\/creator.*$"/>
             <conf:ModuleConfiguration name="product" moduleClass="app.module.Colors" route="^m\/product.*$"/>
+            <conf:ModuleConfiguration name="publish" moduleClass="app.module.Publish" route="^m\/publish.*$"/>
 
             <ui:ContentPlaceHolder name="main" id="main" />
         </js:ModuleLoader>

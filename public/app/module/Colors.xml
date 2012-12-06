@@ -27,9 +27,10 @@
                         </js:Template>
                     </ui:TileList>
                 </div>
-                <div id="cat_content"></div>
+
             </div>
 
+            <ui:Button label="Publish" href="#/m/publish"/>
 
         </div>
     </js:Content>

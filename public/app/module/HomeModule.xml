@@ -12,7 +12,6 @@
 
             <ui:Button label="Select" href="#/m/product"/>
 
-
         </div>
 
     </js:Content>
