@@ -1,14 +1,8 @@
 <module:HomeModuleClass xmlns="http://www.w3.org/1999/xhtml"
-                  xmlns:module="app.module" xmlns:js="js.core"
-                  xmlns:sprdView="sprd.view"
-                    >
+                  xmlns:module="app.module" xmlns:js="js.core">
     <js:Content name="main">
         <div id="home-module">
-            <h1>Design your own shirt</h1>
-
-            <sprdView:ImageUpload notice="Drop your files here." uploadContext="{user}"/>
-
-            <h3>Drop your design here</h3>
+            Design your own shirt
         </div>
 
     </js:Content>
