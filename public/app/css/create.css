@@ -33,3 +33,37 @@
         width: 980px;
     }
 }
+
+#create-module .product-appearances {
+    list-style: none;
+    margin: 0;
+}
+
+#create-module .product-appearances li {
+    float: left;
+    margin: 3px;
+    border: 2px solid white;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#create-module .product-appearances li.active {
+    border-color: #5AAF0B;
+}
+
+#create-module #designer {
+    position: relative;
+    text-align: right;
+}
+
+#create-module .product-view-selector {
+    position: absolute;
+    top: 0;
+    left: 0;
+    list-style: none;
+    margin: 0;
+}
+
+#create-module #designer .product-viewer {
+    display: inline-block;
+}
