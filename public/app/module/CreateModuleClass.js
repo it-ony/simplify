@@ -4,19 +4,9 @@ define(['app/module/ModuleBase', "js/data/DataSource", "flow"], function(ModuleB
         defaults: {
             designs: "{user.designs}",
 
-            // focused collection
-            collection: null,
-
             // the product
-            product: null,
+            product: null
 
-
-            gap: 40,
-            minWidth: 170,
-            maxWidth: 300,
-            pageSize: 40,
-            cols: 2,
-            itemSize: 80
         },
 
         inject: {
