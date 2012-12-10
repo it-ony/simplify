@@ -54,6 +54,27 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product"], fu
 
             this.callBase();
 
+        },
+
+        onDesignClick: function(e) {
+
+            var product = this.$.product;
+
+            if (e && product) {
+                var dataItem = e.target.find('$dataItem');
+                if (dataItem) {
+                    var design = dataItem.$.data;
+                    design && product.addDesign({
+                        design: design
+                    }, function(err) {
+                        if (err) {
+                            // TODO: notify user
+                            console.log(err);
+                        }
+                    });
+                }
+            }
+
         }
 
     });
