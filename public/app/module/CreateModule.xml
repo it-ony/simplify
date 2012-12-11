@@ -17,7 +17,7 @@
                                  onitemClick="onDesignClick">
                         <js:Template name="renderer">
                             <div class="design-tile" width="{_itemWidth}" height="{_itemHeight}" overflow="hidden">
-                                <view:DesignImage width="100" height="100" design="{item}" />
+                                <view:DesignImage width="100" height="100" design="{item}"/>
                                 <div>
                                     <a class="design-tile-name" href="m/design/{item.id}">
                                         {item.name}
@@ -49,7 +49,7 @@
                                 <div class="row-fluid">
                                     <div class="span7">
                                         <div id="designer">
-                                            <view:ProductViewSelector product="{product}" selectedItem="{{currentView}}" />
+                                            <view:ProductViewSelector product="{product}" selectedItem="{{currentView}}"/>
                                             <view:ProductViewer product="{product}" view="{currentView}" width="400" height="400"/>
                                         </div>
                                     </div>
@@ -81,7 +81,9 @@
                                                      heightUpdatePolicy="out" widthUpdatePolicy="in"
                                                      prefetchItemCount="10"
                                                      height="300"
-                                                     minItemSize="100" maxItemSize="150" itemHeight="150">
+                                                     minItemSize="100" maxItemSize="150" itemHeight="150"
+                                                     onitemClick="onProductTypeClick"
+                                                >
                                             <js:Template name="renderer">
                                                 <div class="product-type-tile" width="{_itemWidth}" height="{_itemHeight}" overflow="hidden">
                                                     <view:ProductTypeImage width="100" height="100" productType="{item}"/>

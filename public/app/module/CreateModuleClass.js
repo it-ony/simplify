@@ -40,9 +40,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product"], fu
                 product = this.$.product;
 
             if (!(product && product.$.productType)) {
-                user.$.productTypes.fetchPage(0, {
-                    fullData: true
-                }, function() {
+                user.$.productTypes.fetchPage(0, null, function() {
                     var productType = user.get('productTypes[1]');
 
                     product.set('productType', productType);
@@ -75,6 +73,18 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product"], fu
                 }
             }
 
+        },
+
+        onProductTypeClick: function(e) {
+            var product = this.$.product;
+
+            if (e && product) {
+                var dataItem = e.target.find('$dataItem');
+                if (dataItem) {
+                    var productType = dataItem.$.data;
+                    productType && product.set('productType', productType);
+                }
+            }
         }
 
     });
