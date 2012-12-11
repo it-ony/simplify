@@ -67,7 +67,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product"], fu
                     }, function(err) {
                         if (err) {
                             // TODO: notify user
-                            console.log(err);
+                            console.log(err + err.stack);
                         }
                     });
                 }
