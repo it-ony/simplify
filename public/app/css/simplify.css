@@ -190,3 +190,12 @@ a:hover {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
+
+.creator-upload {
+    height: 100px;
+    border: 3px dotted gray;
+    border-radius: 29px;
+    text-align: center;
+    line-height: 95px;
+    font-size: 22px;
+}

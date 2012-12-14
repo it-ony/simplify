@@ -1,30 +1,57 @@
 <module:CreatorClass xmlns="http://www.w3.org/1999/xhtml"
                      xmlns:module="app.module" xmlns:js="js.core"
-                     xmlns:ui="js.ui" xmlns:view="sprd.view">
+                     xmlns:ui="js.ui" xmlns:view="sprd.view" xmlns:sprdView="sprd.view">
 
     <js:Content name="main">
-        <div id="creator-module">
+        <div id="creator-module" class="container">
+            <div class="row">
+                <div class="span12">
+                    <sprdView:ImageUpload notice="Drop your files here." uploadContext="{user}" class="creator-upload"/>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="span12">
+                    <ui:TileList cid="productTypeList" class="product-type-list"
+                                 data="{productTypes}"
+                                 prefetchItemCount="10"
+                                 height="600"
+                                 width="800"
+                                 rows="1"
+                                 selectionMode="single"
+                                 itemWidth="200" itemHeight="400"
+                                 widthUpdatePolicy="in"
+                                 horizontalGap="20" verticalGap="1">
+                        <js:Template name="renderer">
+                            <view:ProductTypeImage width="100" height="100" productType="{item}"/>
+                        </js:Template>
+                    </ui:TileList>
+                </div>
+            </div>
+            <!--<div class="row">-->
+            <!--<div class="span12">-->
+            <!--<ui:TileList cid="designList" class="design-list"-->
+            <!--data="{designs}"-->
+            <!--prefetchItemCount="10"-->
+            <!--min-height="150"-->
+            <!--height="300"-->
+            <!--selectionMode="single"-->
+            <!--itemWidth="150" itemHeight="150"-->
+            <!--horizontalGap="20" verticalGap="1">-->
+            <!--<js:Template name="renderer">-->
+            <!--<view:DesignImage width="100" height="100" design="{item}"/>-->
+            <!--</js:Template>-->
+            <!--</ui:TileList>-->
+            <!--</div>-->
+            <!--</div>-->
             <div id="motive">
-                <div class="dropzone"><p class="big">+</p><p>drop your motive here</p></div>
 
-                <ui:TileList cid="designList" class="design-list"
-                             data="{designs}"
-                             heightUpdatePolicy="in"
-                             prefetchItemCount="10"
-                             min-height="150"
-                             height="150"
-                             selectionMode="single"
-                             itemWidth="150" itemHeight="150"
-                             horizontalGap="20" verticalGap="1" cols="1">
-                    <js:Template name="renderer">
-                        <view:DesignImage class="mot_img" width="100" height="100" design="{item}"/>
-                    </js:Template>
-                </ui:TileList>
+
                 <!--<ul class="mot_list">-->
-                    <!--<li class="mot_img"><a href="#"> </a></li>-->
-                    <!--<li class="mot_img"></li>-->
-                    <!--<li class="mot_img"></li>-->
-                    <!--<li class="mot_img"></li>-->
+                <!--<li class="mot_img"><a href="#"> </a></li>-->
+                <!--<li class="mot_img"></li>-->
+                <!--<li class="mot_img"></li>-->
+                <!--<li class="mot_img"></li>-->
                 <!--</ul>-->
 
 
@@ -32,24 +59,23 @@
             <div id="content_cat">
                 <!--<view:DesignImage width="300" height="300" design="{designList.selectedItems.at(0)}"/>-->
 
-                <div id="horizontal_catslider">
-                    <ui:TileList cid="productTypeList" class="product-type-list"
-                                 data="{productTypes}"
-                                 prefetchItemCount="10"
-                                 min-height="150"
-                                 height="150"
-                                 width="800"
-                                 rows="1"
-                                 selectionMode="single"
-                                 itemWidth="150" itemHeight="150"
-                                 widthUpdatePolicy="in"
-                                 horizontalGap="20" verticalGap="1" scrollDirection="horizontal">
-                        <js:Template name="renderer">
-                            <view:ProductTypeImage width="100" height="100" productType="{item}"/>
-                        </js:Template>
-                    </ui:TileList>
-                </div>
-                <div id="cat_content"></div>
+                <!--<div id="horizontal_catslider">-->
+                <!--<ui:TileList cid="productTypeList" class="product-type-list"-->
+                <!--data="{productTypes}"-->
+                <!--prefetchItemCount="10"-->
+                <!--min-height="150"-->
+                <!--height="150"-->
+                <!--width="800"-->
+                <!--rows="1"-->
+                <!--selectionMode="single"-->
+                <!--itemWidth="150" itemHeight="150"-->
+                <!--widthUpdatePolicy="in"-->
+                <!--horizontalGap="20" verticalGap="1" scrollDirection="horizontal">-->
+                <!--<js:Template name="renderer">-->
+                <!--<view:ProductTypeImage width="100" height="100" productType="{item}"/>-->
+                <!--</js:Template>-->
+                <!--</ui:TileList>-->
+                <!--</div>-->
             </div>
 
 

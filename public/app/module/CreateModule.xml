@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="buttons">
                                             <ui:Button label="T-Shirt designer" type="warning"/>
-                                            <ui:Button label="Create product" type="success"/>
+                                            <ui:Button label="Create product" type="success" onclick="_createProduct"/>
                                         </div>
                                     </div>
                                 </div>

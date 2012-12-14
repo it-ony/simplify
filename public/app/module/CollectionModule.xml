@@ -26,7 +26,9 @@
                                  verticalGap="1" cols="1" prefetchItemCount="6"
                                  selectionMode="">
                         <js:Template name="renderer">
-                            {item.name}
+                            <div>
+                                <span class="badge">20 items</span> {item.name}
+                            </div>
                         </js:Template>
                     </ui:TileList>
                 </div>
@@ -72,10 +74,11 @@
                                 <ui:DataGridColumn title="name" width="30%">
                                     <js:Template name="cell">
                                         <div class="editor" ondblclick="_startEdit" onkeyup="_endEdit">
-                                            <div>{$dataItem.data.name}
+                                            <div>
+                                                {item.name}
                                                 <i class="icon-edit"/>
                                             </div>
-                                            <input type="text" value="{{$dataItem.data.name}}"/>
+                                            <input type="text" value="{{item.name}}"/>
                                         </div>
                                     </js:Template>
                                 </ui:DataGridColumn>

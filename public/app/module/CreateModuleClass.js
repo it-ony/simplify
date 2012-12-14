@@ -3,9 +3,8 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product"], fu
 
         defaults: {
             designs: "{user.designs}",
-
             // the product
-            product: Product,
+            product: null,
             currentView: null
         },
 
@@ -24,7 +23,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product"], fu
 
         initialize: function () {
             this.bind('product', 'change:productType', this._onProductTypeChange, this);
-
+            this.bind('productTypeList.selectedItems','all', this._onSelectionChange, this);
             this.callBase();
         },
 
@@ -35,9 +34,18 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product"], fu
             }
         },
 
+        _onSelectionChange: function(e){
+            var selectedItems = this.$.productTypeList.$.selectedItems;
+            if(!selectedItems.isEmpty() && this.$.product){
+                this.$.product.set('productType', selectedItems.at(0));
+            }
+        },
+
         start: function() {
             var user = this.$.user,
-                product = this.$.product;
+                product = user.getCollection('products').createItem();
+
+            this.set('product',product);
 
             if (!(product && product.$.productType)) {
                 user.$.productTypes.fetchPage(0, null, function() {
@@ -84,6 +92,14 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product"], fu
                     var productType = dataItem.$.data;
                     productType && product.set('productType', productType);
                 }
+            }
+        },
+
+        _createProduct: function(){
+            if(this.$.product){
+                this.$.product.save(null, function(err){
+                     console.log(err);
+                });
             }
         }
 
