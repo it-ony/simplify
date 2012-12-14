@@ -49,8 +49,8 @@
                                 <div class="row-fluid">
                                     <div class="span7">
                                         <div id="designer">
-                                            <view:ProductViewSelector product="{product}" selectedItem="{{currentView}}"/>
-                                            <view:ProductViewer product="{product}" view="{currentView}" width="400" height="400"/>
+                                            <view:ProductViewSelector product="{product}" selectedItem="{{product.view}}"/>
+                                            <view:ProductViewer product="{product}" view="{product.view}" width="400" height="400"/>
                                         </div>
                                     </div>
                                     <div class="span5">

@@ -4,8 +4,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product"], fu
         defaults: {
             designs: "{user.designs}",
             // the product
-            product: null,
-            currentView: null
+            product: null
         },
 
         inject: {
