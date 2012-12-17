@@ -56,7 +56,7 @@
                                     <div class="span5">
                                         <div>
                                             <h4>Colors</h4>
-                                            <view:ColorSelector productType="{{product.productType}}" selectedItem="{{product.appearance}}" class="clearfix"/>
+                                            <view:ColorSelector productType="{product.productType}" selectedItem="{{product.appearance}}" class="clearfix"/>
                                         </div>
                                         <div>
                                             <h4>Product types</h4>

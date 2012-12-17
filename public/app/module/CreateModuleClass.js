@@ -33,13 +33,6 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
             }
         },
 
-        _onSelectionChange: function(e){
-            var selectedItems = this.$.productTypeList.$.selectedItems;
-            if(!selectedItems.isEmpty() && this.$.product){
-                this.$.product.set('productType', selectedItems.at(0));
-            }
-        },
-
         start: function(parameter, callback) {
             var self = this,
                 user = this.$.user,
@@ -107,7 +100,12 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
                 var dataItem = e.target.find('$dataItem');
                 if (dataItem) {
                     var productType = dataItem.$.data;
-                    productType && product.set('productType', productType);
+
+                    product.setProductType(productType, function(err) {
+                        if (err) {
+                            console.log(err + err.stack);
+                        }
+                    });
                 }
             }
         },
