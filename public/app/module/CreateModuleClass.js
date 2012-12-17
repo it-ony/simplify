@@ -1,4 +1,4 @@
-define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product"], function(ModuleBase, DataSource, Product) {
+define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "flow"], function(ModuleBase, DataSource, Product, flow) {
     return ModuleBase.inherit('app.module.CreateClass', {
 
         defaults: {
@@ -40,24 +40,42 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product"], fu
             }
         },
 
-        start: function() {
-            var user = this.$.user,
-                product = user.getCollection('products').createItem();
+        start: function(parameter, callback) {
+            var self = this,
+                user = this.$.user,
+                product = user.getCollection('products').createItem(),
+                productType;
 
-            this.set('product',product);
+            this.set('product', product);
 
-            if (!(product && product.$.productType)) {
-                user.$.productTypes.fetchPage(0, null, function() {
-                    var productType = user.get('productTypes[1]');
 
-                    product.set('productType', productType);
+            flow()
+                .seq(function(cb) {
+                    if (!(product && product.$.productType)) {
+                        user.$.productTypes.fetchPage(0, null, function () {
+                            productType = user.get('productTypes[1]');
+                            product.set('productType', productType);
+                            cb();
+                        });
+                    } else {
+                        cb();
+                    }
+                })
+                .seq(function(cb) {
+                    if (productType) {
+                        productType.fetch(null, cb);
+                    } else {
+                        cb();
+                    }
+                })
+                .seq(function(){
                     if (productType) {
                         product.set('appearance', productType.getDefaultAppearance());
                     }
+                })
+                .exec(function() {
+                    self.start.baseImplementation.call(self, parameter, callback);
                 });
-            }
-
-            this.callBase();
 
         },
 
