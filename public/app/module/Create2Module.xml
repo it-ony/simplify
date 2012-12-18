@@ -36,19 +36,19 @@
                     </div>
                     <div class="body">
                         <div class="color-selector"/>
+
+                        <ui:TileList
+                                data="{productTypeGroups}"
+                                scrollDirection="horizontal"
+                                itemHeight="75"
+                                itemWidth="75"
+                                cols="5">
+                            <js:Template name="renderer">
+                                <view:ProductViewer product="{getRepresentativ(item)}" view="{getRepresentativ(item).view}" width="70" height="70"/>
+                            </js:Template>
+                        </ui:TileList>
                     </div>
                 </div>
-
-                <ui:TileList
-                        data="{productTypeGroups}"
-                        scrollDirection="horizontal"
-                        itemHeight="75"
-                        itemWidth="75"
-                        cols="5">
-                    <js:Template name="renderer">
-                        <view:ProductViewer product="{getRepresentativ(item)}" view="{getRepresentativ(item).view}" width="70" height="70"/>
-                    </js:Template>
-                </ui:TileList>
 
                 <a class="fallback">Switch to "old" user area</a>
             </div>
