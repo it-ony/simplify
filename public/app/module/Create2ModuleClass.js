@@ -190,17 +190,11 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
 
         }.bus("Stage.Rendered"),
 
-        bus_configurationModified: function() {
-            this.trigger("masterProductChanged");
-        }.bus("ConfigurationModified"),
-
         getRepresentativ: function (productTypeGroup) {
             var product = this.$.product.clone(),
                 productType = this.$.user.$.productTypes.createItem(productTypeGroup.$.ids[0]);
 
-            product.setProductType(productType, function(err){
-                console.log(err);
-            });
+            product.setProductType(productType);
 
             return product;
         }.on("masterProductChanged"),
