@@ -90,6 +90,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
                 })
                 .seq(function(){
                     if (productType) {
+                        product.set('view', productType.getDefaultView());
                         product.set('appearance', productType.getDefaultAppearance());
                     }
                 })
@@ -98,7 +99,6 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
                 });
         },
         getRepresentativ: function(productTypeGroup){
-
             var product = this.$.product.clone(),
                 productType = this.$.user.$.productTypes.createItem(productTypeGroup.$.ids[0]);
 
@@ -107,6 +107,25 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
             product.setProductType(productType);
 
             return product;
+        },
+
+        rotateView: function() {
+            var product = this.$.product;
+            if (product && product.$.view && product.$.productType && product.$.productType.$.views) {
+
+                var productType = product.$.productType;
+                var index = productType.$.views.indexOf(product.$.view);
+
+                if (index !== -1) {
+                    // view found
+                    var size = productType.$.views.size();
+                    index = index - 1 + size;
+                    index = index % size;
+
+                    product.set('view', productType.$.views.at(index));
+                }
+
+            }
         }
     });
 });
