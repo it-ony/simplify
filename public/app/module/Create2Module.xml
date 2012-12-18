@@ -8,23 +8,31 @@
 
         <div id="create2-module" class="module">
             <div class="module-content">
-                <div class="header">
-                    <div class="row-fluid">
-                        <div class="pull-right">
-                            <ui:ButtonGroup>
-                                <ui:Button iconClass="icon-globe"/>
-                            </ui:ButtonGroup>
-                        </div>
-                        <div class="pull-left">
-                            <h1>Create2</h1>
+                <div class="left">
+                    <div class="header">
+                        <h1>Create your Shirt</h1>
+                    </div>
+                    <div class="body">
+
+                        <div class="designer">
+                            <view:ProductViewer product="{product}" view="{product.view}" width="400" height="400"/>
+
+                            <div class="print-color-selector">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="content">
-                    <div>
-                        Content goes here.
+                <div class="right">
+                    <div class="header">
+                        <h2>Choose Colour and Product Section</h2>
+                        <ui:Button size="large" type="success" label="Publish your selected product" />
+                    </div>
+                    <div class="body">
+                        <div class="color-selector" />
                     </div>
                 </div>
+
+                <a class="fallback">Switch to "old" user area</a>
             </div>
         </div>
     </js:Content>
