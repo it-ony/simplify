@@ -115,6 +115,14 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
             api: DataSource
         },
 
+        ctor: function() {
+            this.callBase();
+
+            this.bind("product.configurations", "add", function () {
+                // this.trigger("masterProductChanged");
+            }, this);
+        },
+
         _onProductTypeChange: function (e) {
             if (e && e.$) {
                 var productType = e.$;
@@ -122,7 +130,11 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
             }
         },
 
-        start: function (parameter, callback) {
+        refresh: function() {
+            this.trigger("masterProductChanged");
+        },
+
+        start: function(callback) {
             var self = this,
                 user = this.$.user,
                 product = user.getCollection('products').createItem(),
@@ -156,20 +168,36 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
                         product.set('appearance', productType.getDefaultAppearance());
                     }
                 })
-                .exec(function () {
-                    self.start.baseImplementation.call(self, parameter, callback);
+                .exec(function() {
+                    self.start.baseImplementation.call(self, callback);
                 });
         },
+
+        bus_applicationRendered: function() {
+
+            var product = this.$.product,
+                user = this.$.user;
+
+            if (product) {
+                user.$.designs.fetchPage(0, null, function () {
+                    var iHeart = user.get('designs[1]');
+
+                    product.addDesign({
+                        design: iHeart
+                    });
+                });
+            }
+
+        }.bus("Stage.Rendered"),
+
         getRepresentativ: function (productTypeGroup) {
             var product = this.$.product.clone(),
                 productType = this.$.user.$.productTypes.createItem(productTypeGroup.$.ids[0]);
 
-//            productType.fetch();
-
             product.setProductType(productType);
 
             return product;
-        },
+        }.on("masterProductChanged"),
 
         rotateView: function () {
             var product = this.$.product;
@@ -190,8 +218,16 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
             }
         },
         _selectGroup: function(e){
-            this.set('selectedGroup', e.target.find('group'));
+            var selectedGroup = e.target.find('group');
+            this.set('selectedGroup', selectedGroup);
+
+            var product = this.getRepresentativ(selectedGroup);
+            if (product && this.$.product) {
+                this.$.product.setProductType(product.$.productType);
+            }
+
         },
+
         isGroupSelected: function(group){
             return this.$.selectedGroup === group;
         }.onChange("selectedGroup")

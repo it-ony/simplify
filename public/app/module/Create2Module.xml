@@ -16,11 +16,12 @@
 
                         <div class="designer">
                             <div class="controls">
-                                <a class="add-design">Add design</a>
+                                <a class="add-design" onclick="refresh">Add design</a>
                                 <span class="master-product">Masterproduct</span>
                             </div>
 
-                            <view:ProductViewer product="{product}" view="{product.view}" width="440" height="440"/>
+                            <view:ProductViewer product="{product}" view="{product.view}" width="440" height="440"
+                                    editable="true"/>
 
                             <a onclick="rotateView" class="rotate-left"/>
 
@@ -38,12 +39,12 @@
                         <div class="color-selector"/>
                         <ui:ItemsView items="{productTypeGroups}" itemKey="productTypeGroup">
                             <js:Template name="item">
-                                <ui:ItemsView items="{productTypeGroup.subGroups}" itemKey="group" class="product-type-group-row clearfix" >
+                                <ui:ItemsView items="{productTypeGroup.subGroups}" itemKey="group" class="product-type-group-row clearfix">
                                     <js:Template name="item">
                                         <div class="product-type-group pull-left" width="90" onclick="_selectGroup"
                                              selected="{isGroupSelected(group)}">
                                             <view:ProductViewer product="{getRepresentativ(group)}"
-                                                                view="{getRepresentativ(group).view}"
+                                                                view="{product.view}"
                                                                 width="70" height="70"/>
                                             <div class="name">{group.name}</div>
                                         </div>
@@ -52,22 +53,7 @@
                             </js:Template>
                         </ui:ItemsView>
                     </div>
-
                 </div>
-
-
-                <!--<ui:TileList-->
-                        <!--data="{productTypeGroups}"-->
-                        <!--scrollDirection="horizontal"-->
-                        <!--itemHeight="75"-->
-                        <!--itemWidth="75"-->
-                        <!--cols="5">-->
-                    <!--<js:Template name="renderer">-->
-                        <!--<view:ProductViewer product="{getRepresentativ(item)}" view="{getRepresentativ(item).view}"-->
-                                            <!--width="70" height="70"/>-->
-                    <!--</js:Template>-->
-                <!--</ui:TileList>-->
-
                 <a class="fallback">Switch to "old" user area</a>
             </div>
         </div>
