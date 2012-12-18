@@ -194,7 +194,9 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
             var product = this.$.product.clone(),
                 productType = this.$.user.$.productTypes.createItem(productTypeGroup.$.ids[0]);
 
-            product.setProductType(productType);
+            product.setProductType(productType, function(err){
+                console.log(err);
+            });
 
             return product;
         }.on("masterProductChanged"),
