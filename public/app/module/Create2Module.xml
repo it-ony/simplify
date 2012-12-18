@@ -1,0 +1,31 @@
+<module:Create2ModuleClass xmlns="http://www.w3.org/1999/xhtml"
+                          xmlns:module="app.module" xmlns:js="js.core"
+                          xmlns:ui="js.ui" xmlns:view="sprd.view">
+
+    <js:Content name="main">
+
+        <link rel="stylesheet" href="app/css/prototype.css" />
+
+        <div id="create2-module" class="module">
+            <div class="module-content">
+                <div class="header">
+                    <div class="row-fluid">
+                        <div class="pull-right">
+                            <ui:ButtonGroup>
+                                <ui:Button iconClass="icon-globe"/>
+                            </ui:ButtonGroup>
+                        </div>
+                        <div class="pull-left">
+                            <h1>Create2</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div>
+                        Content goes here.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </js:Content>
+</module:Create2ModuleClass>

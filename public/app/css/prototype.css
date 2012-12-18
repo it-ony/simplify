@@ -1,0 +1,14 @@
+#menu {
+    display: none;
+}
+
+#main {
+    outline: 1px solid lightgray;
+    position: fixed;
+    width: 1024px;
+    height: 768px;
+    top: 50%;
+    left: 50%;
+    margin-left: -512px;
+    margin-top: -384px;
+}

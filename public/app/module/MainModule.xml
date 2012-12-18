@@ -23,6 +23,9 @@
                     <li class="create">
                         <a href="m/create">Create</a>
                     </li>
+                    <li class="prototype">
+                        <a href="m/create2">Prototype</a>
+                    </li>
                     <li class="create2">
                         <a href="m/creator">Creator 2</a>
                     </li>
@@ -54,7 +57,8 @@
             <conf:ModuleConfiguration name="statistic" moduleClass="app.module.StatisticModule" route="^m\/statistic.*$"/>
             <conf:ModuleConfiguration name="pos" moduleClass="app.module.PosModule" route="^m\/pos.*$"/>
             <conf:ModuleConfiguration name="design" moduleClass="app.module.DesignModule" route="^m\/design.*$"/>
-            <conf:ModuleConfiguration name="create" moduleClass="app.module.CreateModule" route="^m\/create.*$"/>
+            <conf:ModuleConfiguration name="create" moduleClass="app.module.CreateModule" route="^m\/create[^2].*$"/>
+            <conf:ModuleConfiguration name="create2" moduleClass="app.module.Create2Module" route="^m\/create2.*$"/>
             <conf:ModuleConfiguration name="creator" moduleClass="app.module.Creator" route="^m\/creator.*$"/>
 
             <ui:ContentPlaceHolder name="main" id="main" />
