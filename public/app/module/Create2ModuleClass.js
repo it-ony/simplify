@@ -107,7 +107,8 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
         defaults: {
             // the product
             product: null,
-            productTypeGroups: null
+            productTypeGroups: null,
+            selectedGroup: null
         },
 
         inject: {
@@ -129,6 +130,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
 
             this.set('product', product);
             this.set('productTypeGroups', productTypeGroups);
+            this.set('selectedGroup', productTypeGroups.at(0).$.subGroups.at(0));
             flow()
                 .seq(function (cb) {
                     if (!(product && product.$.productType)) {
@@ -186,6 +188,12 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
                 }
 
             }
-        }
+        },
+        _selectGroup: function(e){
+            this.set('selectedGroup', e.target.find('group'));
+        },
+        isGroupSelected: function(group){
+            return this.$.selectedGroup === group;
+        }.onChange("selectedGroup")
     });
 });

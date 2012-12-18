@@ -38,13 +38,14 @@
                         <div class="color-selector"/>
                         <ui:ItemsView items="{productTypeGroups}" itemKey="productTypeGroup">
                             <js:Template name="item">
-                                <ui:ItemsView items="{productTypeGroup.subGroups}" itemKey="group" class="clearfix">
+                                <ui:ItemsView items="{productTypeGroup.subGroups}" itemKey="group" class="product-type-group-row clearfix" >
                                     <js:Template name="item">
-                                        <div class="product-type-group pull-left" width="90">
+                                        <div class="product-type-group pull-left" width="90" onclick="_selectGroup"
+                                             selected="{isGroupSelected(group)}">
                                             <view:ProductViewer product="{getRepresentativ(group)}"
                                                                 view="{getRepresentativ(group).view}"
                                                                 width="70" height="70"/>
-                                            <div>{group.name}</div>
+                                            <div class="name">{group.name}</div>
                                         </div>
                                     </js:Template>
                                 </ui:ItemsView>
