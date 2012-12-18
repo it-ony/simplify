@@ -22,7 +22,7 @@
 
                             <view:ProductViewer product="{product}" view="{product.view}" width="440" height="440"/>
 
-                            <a onclick="rotateView" class="rotate-left" />
+                            <a onclick="rotateView" class="rotate-left"/>
 
                             <div class="print-color-selector">
                             </div>
@@ -36,19 +36,37 @@
                     </div>
                     <div class="body">
                         <div class="color-selector"/>
+                        <ui:ItemsView items="{productTypeGroups}" itemKey="productTypeGroup">
+                            <js:Template name="item">
+                                <ui:ItemsView items="{productTypeGroup.subGroups}" itemKey="group" class="clearfix">
+                                    <js:Template name="item">
+                                        <div class="product-type-group pull-left" width="90">
+                                            <view:ProductViewer product="{getRepresentativ(group)}"
+                                                                view="{getRepresentativ(group).view}"
+                                                                width="70" height="70"/>
+                                            <div>{group.name}</div>
+                                        </div>
+                                    </js:Template>
+                                </ui:ItemsView>
+                            </js:Template>
+                        </ui:ItemsView>
                     </div>
+
                 </div>
 
-                <ui:TileList
-                        data="{productTypeGroups}"
-                        scrollDirection="horizontal"
-                        itemHeight="75"
-                        itemWidth="75"
-                        cols="5">
-                    <js:Template name="renderer">
-                        <view:ProductViewer product="{getRepresentativ(item)}" view="{getRepresentativ(item).view}" width="70" height="70"/>
-                    </js:Template>
-                </ui:TileList>
+
+
+                <!--<ui:TileList-->
+                        <!--data="{productTypeGroups}"-->
+                        <!--scrollDirection="horizontal"-->
+                        <!--itemHeight="75"-->
+                        <!--itemWidth="75"-->
+                        <!--cols="5">-->
+                    <!--<js:Template name="renderer">-->
+                        <!--<view:ProductViewer product="{getRepresentativ(item)}" view="{getRepresentativ(item).view}"-->
+                                            <!--width="70" height="70"/>-->
+                    <!--</js:Template>-->
+                <!--</ui:TileList>-->
 
                 <a class="fallback">Switch to "old" user area</a>
             </div>

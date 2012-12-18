@@ -1,44 +1,104 @@
-define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "flow", "sprd/model/ProductTypeGroup", "js/core/List"], function(ModuleBase, DataSource, Product, flow, ProductTypeGroup, List) {
+define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "flow", "sprd/model/ProductTypeGroup", "js/core/List"], function (ModuleBase, DataSource, Product, flow, ProductTypeGroup, List) {
 
     var typeGroups = [
-        {
-            name: "T-Shirts",
-            ids: [6]
-        },
-        {
-            name: "Slimfits",
-            ids: [84]
-        },
-        {
-            name: "Polos",
-            ids: [281]
+        {   name: "Shirts",
+            subGroups: [
+                {
+                    name: "T-Shirts",
+                    ids: [6]
+                },
+                {
+                    name: "Slimfits",
+                    ids: [84]
+                },
+                {
+                    name: "Polos",
+                    ids: [281]
+                },
+                {
+                    name: "Jackets",
+                    ids: [778]
+                }
+            ]
         },
         {
             name: "Hoodies",
-            ids: [20]
+            subGroups: [
+                {
+                    name: "Hoodies",
+                    ids: [20]
+                },
+                {
+                    name: "Jackets",
+                    ids: [778]
+                },
+                {
+                    name: "Longsleeves",
+                    ids: [175]
+                },
+                {
+                    name: "Workweak",
+                    ids: [721]
+                }
+            ]
+
         },
         {
-            name: "Longsleeves",
-            ids: [175]
+            name: "Trousers",
+            subGroups: [
+                {
+                    name: "Trousers",
+                    ids: [776]
+                },
+                {
+                    name: "Shorts",
+                    ids: [743]
+                },
+                {
+                    name: "Underwear",
+                    ids: [160]
+                }
+            ]
+
         },
         {
-            name: "Jackets",
-            ids: [778]
-        },
-        {
-            name : "Bags",
-            ids: [638]
-        },
-        {
-            name: "Mugs",
-            ids: [31]
+            name: "Accessorises",
+            subGroups: [
+                {
+                    name: "Phone Cases",
+                    ids: [776]
+                },
+                {
+                    name: "Caps",
+                    ids: [428]
+                },
+                {
+                    name: "Mugs",
+                    ids: [31]
+                },
+                {
+                    name: "Bags",
+                    ids: [638]
+                },
+                {
+                    name: "Special Products",
+                    ids: [55]
+                }
+            ]
+
         }
+
     ];
 
     var productTypeGroups = new List();
-    for(var i = 0; i < typeGroups.length; i++){
-        var typeGroup = typeGroups[i];
-        productTypeGroups.add(new ProductTypeGroup({name: typeGroup.name, ids: typeGroup.ids}));
+    for(var j = 0; j < typeGroups.length; j++){
+        var typeGroup = typeGroups[j],
+            productTypeGroup = new ProductTypeGroup({name: typeGroup.name, subGroups: new List()});
+        for (var i = 0; i < typeGroup.subGroups.length; i++) {
+            var subGroup = typeGroup.subGroups[i];
+            productTypeGroup.$.subGroups.add(new ProductTypeGroup({name: subGroup.name, ids: subGroup.ids}));
+        }
+        productTypeGroups.add(productTypeGroup);
     }
 
 
@@ -61,7 +121,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
             }
         },
 
-        start: function(parameter, callback) {
+        start: function (parameter, callback) {
             var self = this,
                 user = this.$.user,
                 product = user.getCollection('products').createItem(),
@@ -70,7 +130,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
             this.set('product', product);
             this.set('productTypeGroups', productTypeGroups);
             flow()
-                .seq(function(cb) {
+                .seq(function (cb) {
                     if (!(product && product.$.productType)) {
                         user.$.productTypes.fetchPage(0, null, function () {
                             productType = user.get('productTypes[1]');
@@ -81,24 +141,24 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
                         cb();
                     }
                 })
-                .seq(function(cb) {
+                .seq(function (cb) {
                     if (productType) {
                         productType.fetch(null, cb);
                     } else {
                         cb();
                     }
                 })
-                .seq(function(){
+                .seq(function () {
                     if (productType) {
                         product.set('view', productType.getDefaultView());
                         product.set('appearance', productType.getDefaultAppearance());
                     }
                 })
-                .exec(function() {
+                .exec(function () {
                     self.start.baseImplementation.call(self, parameter, callback);
                 });
         },
-        getRepresentativ: function(productTypeGroup){
+        getRepresentativ: function (productTypeGroup) {
             var product = this.$.product.clone(),
                 productType = this.$.user.$.productTypes.createItem(productTypeGroup.$.ids[0]);
 
@@ -109,7 +169,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
             return product;
         },
 
-        rotateView: function() {
+        rotateView: function () {
             var product = this.$.product;
             if (product && product.$.view && product.$.productType && product.$.productType.$.views) {
 
