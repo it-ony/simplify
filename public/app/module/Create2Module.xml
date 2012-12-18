@@ -1,10 +1,10 @@
 <module:Create2ModuleClass xmlns="http://www.w3.org/1999/xhtml"
-                          xmlns:module="app.module" xmlns:js="js.core"
-                          xmlns:ui="js.ui" xmlns:view="sprd.view">
+                           xmlns:module="app.module" xmlns:js="js.core"
+                           xmlns:ui="js.ui" xmlns:view="sprd.view">
 
     <js:Content name="main">
 
-        <link rel="stylesheet" href="app/css/prototype.css" />
+        <link rel="stylesheet" href="app/css/prototype.css"/>
 
         <div id="create2-module" class="module">
             <div class="module-content">
@@ -25,12 +25,23 @@
                 <div class="right">
                     <div class="header">
                         <h2>Choose Colour and Product Section</h2>
-                        <ui:Button size="large" type="success" label="Publish your selected product" />
+                        <ui:Button size="large" type="success" label="Publish your selected product"/>
                     </div>
                     <div class="body">
-                        <div class="color-selector" />
+                        <div class="color-selector"/>
                     </div>
                 </div>
+
+                <ui:TileList
+                        data="{productTypeGroups}"
+                        scrollDirection="horizontal"
+                        itemHeight="75"
+                        itemWidth="75"
+                        cols="5">
+                    <js:Template name="renderer">
+                        <view:ProductViewer product="{getRepresentativ(item)}" view="{getRepresentativ(item).view}" width="70" height="70"/>
+                    </js:Template>
+                </ui:TileList>
 
                 <a class="fallback">Switch to "old" user area</a>
             </div>
