@@ -99,3 +99,22 @@ background: url(img/rotate.png) no-repeat;
 }
 
 
+.product-type-group-row {
+    margin: 10px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.product-type-group {
+    text-align: center;
+    border-bottom: 2px solid transparent;
+}
+
+.product-type-group.active {
+    border-bottom: 2px solid green;
+}
+
+.product-type-group .name {
+    color: gray;
+    font-size: 11px;
+}
+
