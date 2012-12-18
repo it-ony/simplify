@@ -53,6 +53,10 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
                     self.start.baseImplementation.call(self, parameter, callback);
                 });
 
+        },
+
+        rotateView: function() {
+
         }
 
     });

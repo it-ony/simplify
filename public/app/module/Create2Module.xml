@@ -15,7 +15,14 @@
                     <div class="body">
 
                         <div class="designer">
-                            <view:ProductViewer product="{product}" view="{product.view}" width="400" height="400"/>
+                            <div class="controls">
+                                <a class="add-design">Add design</a>
+                                <span class="master-product">Masterproduct</span>
+                            </div>
+
+                            <view:ProductViewer product="{product}" view="{product.view}" width="440" height="440"/>
+
+                            <a onclick="rotateView" class="rotate-left" />
 
                             <div class="print-color-selector">
                             </div>

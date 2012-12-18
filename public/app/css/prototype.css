@@ -12,3 +12,90 @@
     margin-left: -512px;
     margin-top: -300px;
 }
+
+#create2-module {
+position: relative;
+background: #f2f2f2;
+}
+
+#create2-module .left {
+position: absolute;
+left: 32px;
+top: 32px;
+width: 440px;
+bottom: 32px;
+}
+
+#create2-module .right {
+position: absolute;
+left: 480px;
+top: 32px;
+right: 32px;
+bottom: 32px;
+}
+
+#create2-module .header h1 {
+padding: 0;
+}
+
+#create2-module .right .header {
+background: #d5d5d5;
+position: relative;
+}
+
+#create2-module .right .header h2 {
+margin: 0;
+font-size: 16px;
+font-weight: normal;
+padding: 0 10px;
+}
+
+#create2-module .right .header .btn {
+position: absolute;
+right: 5px;
+top: 3mpx;
+}
+
+#create2-module .fallback {
+position: absolute;
+right: 32px;
+top: 568px;
+padding: 5px 0;
+}
+
+#create2-module .body {
+border: 1px solid #e6e6e6;
+position: absolute;
+top: 35px;
+width: 100%;
+bottom: 0;
+background: white;
+}
+
+#create2-module .controls {
+height: 20px;
+padding: 10px;
+position: relative;
+}
+
+#create2-module .master-product {
+position: absolute;
+right: 10px;
+padding-left: 25px;
+background: transparent url(img/masterProductStar.png) no-repeat left center;
+}
+
+#create2-module .rotate-left {
+display: inline-block;
+width: 26px;
+height: 14px;
+position: absolute;
+
+bottom: 10px;
+left: 50%;
+margin-left: -13px;
+background: url(img/rotate.png) no-repeat;
+
+}
+
+
