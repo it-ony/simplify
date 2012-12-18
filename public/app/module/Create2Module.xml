@@ -45,7 +45,8 @@
                                              selected="{isGroupSelected(group)}">
                                             <view:ProductViewer product="{getRepresentativ(group)}"
                                                                 view="{product.view}"
-                                                                width="70" height="70"/>
+                                                                width="70" height="70"
+                                                    editable="false"/>
                                             <div class="name">{group.name}</div>
                                         </div>
                                     </js:Template>
