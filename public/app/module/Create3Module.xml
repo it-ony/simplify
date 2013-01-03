@@ -1,0 +1,49 @@
+<module:Create3ModuleClass xmlns="http://www.w3.org/1999/xhtml"
+                           xmlns:module="app.module" xmlns:js="js.core"
+                           xmlns:ui="js.ui" xmlns:view="sprd.view">
+
+    <js:Content name="main">
+
+        <link rel="stylesheet" href="app/css/prototype3.css"/>
+
+        <div id="create3-module" class="module">
+            <div class="module-content">
+                <div class="left">
+                    <div class="row-fluid">
+                        <div class="span5">
+                            <a class="cancel">Cancel</a>
+                        </div>
+                        <div class="span7">
+                            <a class="create btn btn-success">Create Productline</a>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <input type="text" class="tags" placeholder="Tag your design here"/>
+                    </div>
+                    <div class="sinnloser-bums" />
+                </div>
+                <div class="right">
+                    <h1>Cover Picture</h1>
+                    <div class="polaroid">
+
+                        <div class="product">
+                            <view:ProductViewer product="{product}" width="340" height="340"/>
+                            <view:ColorSelector productType="{product.productType}" selectedItem="{{product.appearance}}" />
+                        </div>
+
+                        <div class="edit">
+                            <a class="edit-btn" />
+
+                            <div class="title">
+                                <span onkeydown="checkInput" contentEditable="{editMode}" oninput="saveTitle">{title}</span> - <span class="product-type-name">{product.productType.name}</span>
+                            </div>
+                            <div class="description">
+                                <span onkeydown="checkInput" contentEditable="{editMode}" onfocus="focusDescription" oninput="saveDescription">{description()}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </js:Content>
+</module:Create3ModuleClass>

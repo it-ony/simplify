@@ -1,0 +1,102 @@
+#menu {
+    display: none;
+}
+
+#main {
+    outline: 1px solid lightgray;
+    position: fixed;
+    width: 1024px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    margin-left: -512px;
+    margin-top: -300px;
+}
+
+#create3-module {
+    position: relative;
+    background: #f2f2f2;
+}
+
+#create3-module .right {
+    position: absolute;
+    width: 480px;
+    top: 0;
+    height: 100%;
+    right: 0;
+    background: url(img/rightBG.jpg);
+}
+
+#create3-module .left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 480px;
+    left: 0;
+    padding: 30px;
+    background: url(img/leftBG.jpg);
+}
+
+#create3-module .polaroid {
+    position: absolute;
+    left: 40px;
+    top: 70px;
+    width: 402px;
+    height: 497px;
+    background: url(img/polaroid.png);
+}
+
+#create3-module .product {
+    position: absolute;
+    left: 25px;
+    right: 37px;
+    top: 34px;
+    bottom: 95px
+}
+
+#create3-module .edit {
+    position: absolute;
+    border: 1px solid;
+    top: 410px;
+    left: 25px;
+    right: 37px;
+}
+
+#create3-module .product-appearances {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 333px;
+    height: 32px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.print-area-border {
+    stroke-dasharray: 1, 2;
+}
+
+#create3-module .product-appearances li {
+    display: inline-block;
+    margin: 3px;
+}
+
+#create3-module .product-appearances img {
+    border-radius: 3px;
+}
+
+#create3-module .edit-btn {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    background: url(img/edit.png) no-repeat;
+}
+
+#create3-module .edit input {
+    display: inline;
+    border: 0;
+    width: auto;
+}
