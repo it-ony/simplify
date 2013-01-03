@@ -18,6 +18,8 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
                 });
             }
 
+            return null;
+
         }.onChange('designs'),
 
         initialize: function () {
