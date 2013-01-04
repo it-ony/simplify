@@ -6,16 +6,12 @@
     <js:Injection cid="injection">
         <data:SprdApiDataSource cid="api" gateway="api/v1"
                                 session="{session}"
-                                endPoint="http://api.spreadshirt.net/api/v1"
-                                apiKey="2b065dd3-88b7-44a8-87fe-e564ed27f904"
-                                secret="51616615-0bb1-471e-93f5-fe19022049ef"/>
+                                endPoint="config" />
 
         <data:ImageServerDataSource
                                 cid="imageServer" gateway="image-server/v1"
                                 session="{session}"
-                                endPoint="http://image.spreadshirt.net/image-server/v1"
-                                apiKey="2b065dd3-88b7-44a8-87fe-e564ed27f904"
-                                secret="51616615-0bb1-471e-93f5-fe19022049ef"/>
+                                endPoint="config" />
 
         <coreData:LocalStorage/>
 

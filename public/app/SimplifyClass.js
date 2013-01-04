@@ -1,4 +1,21 @@
-define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStorage", "js/core/History"], function (Application, Session, flow, LocalStorage, History) {
+define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStorage", "js/core/History", "underscore"], function (Application, Session, flow, LocalStorage, History, _) {
+
+        var config = {
+            EU: {
+                endPoint: "http://api.spreadshirt.net/api/v1",
+                gateWay: "/api/v1",
+                imageServerEndPoint: "http://image.spreadshirt.net/image-server/v1",
+                apiKey: "2b065dd3-88b7-44a8-87fe-e564ed27f904",
+                secret: "51616615-0bb1-471e-93f5-fe19022049ef"
+            },
+            NA: {
+                endPoint: "http://api.spreadshirt.net/api/v1",
+                gateWay: "/api/v1",
+                imageServerEndPoint: "http://image.spreadshirt.net/image-server/v1",
+                apiKey: "2b065dd3-88b7-44a8-87fe-e564ed27f904",
+                secret: "51616615-0bb1-471e-93f5-fe19022049ef"
+            }
+        };
 
         return Application.inherit({
 
@@ -17,16 +34,39 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
              * @param parameter
              * @param callback
              */
-            start:function (parameter, callback) {
+            start: function (parameter, callback) {
+
+                parameter = parameter || {};
 
                 var self = this,
                     api = this.$.api,
                     localStorage = this.$.localStorage,
                     injection = this.$.injection,
-                    session;
+                    session,
+                    endPoint;
+
+                parameter.platform = parameter.platform || this.getPlatformFromDomain() || "EU";
+
+                _.defaults(parameter, config[parameter.platform]);
+
+                endPoint = parameter.endPoint;
+
+                if (this.runsInBrowser()) {
+                    var location = this.$stage.$window.location;
+                    if (!/\.js$/.test(location.host)) {
+                        endPoint = location.protocol + "//" + location.host + "/api/v1";
+                    }
+                }
+
+                api.set({
+                    apiKey: parameter.apiKey,
+                    secret: parameter.secret,
+                    endPoint: endPoint,
+                    gateWay: parameter.gateWay
+                });
 
                 flow()
-                    .seq(function(cb) {
+                    .seq(function (cb) {
                         // create or load session
                         var sessionId = localStorage.getItem("sessionId");
 
@@ -48,7 +88,7 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
                             cb();
                         }
                     })
-                    .exec(function(err) {
+                    .exec(function (err) {
                         if (err) {
                             callback(err);
                         } else {
@@ -68,13 +108,23 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
                             }
 
                             // call start from super
-                            self.start.baseImplementation.call(self, parameter, function() {
+                            self.start.baseImplementation.call(self, parameter, function () {
                                 var args = Array.prototype.slice.call(arguments);
                                 fragment && self.$stage.$bus.trigger("Login.RedirectUrl", fragment);
                                 callback.apply(this, args);
                             });
                         }
                     })
+            },
+
+            getPlatformFromDomain: function() {
+
+                if (this.runsInBrowser()) {
+                    return /\.v?com$/.test(this.$stage.$window.location.host) ? "NA" : "EU";
+                }
+
+                return null;
+
             },
 
             defaultRoute: function (routeContext) {
