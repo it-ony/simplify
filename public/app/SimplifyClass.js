@@ -1,4 +1,4 @@
-define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStorage", "js/core/History", "underscore"], function (Application, Session, flow, LocalStorage, History, _) {
+define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStorage", "js/core/History", "underscore", "sprd/manager/ProductManager", "sprd/manager/TextConfigurationManager", "sprd/manager/DesignConfigurationManager"], function (Application, Session, flow, LocalStorage, History, _, ProductManager, TextConfigurationManager, DesignConfigurationManager) {
 
         var config = {
             EU: {
@@ -43,7 +43,8 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
                     localStorage = this.$.localStorage,
                     injection = this.$.injection,
                     session,
-                    endPoint;
+                    endPoint,
+                    bus = this.$stage.$bus;
 
                 parameter.platform = parameter.platform || this.getPlatformFromDomain() || "EU";
 
@@ -57,6 +58,21 @@ define(["js/core/Application", "sprd/model/Session", "flow", "js/data/LocalStora
                         endPoint = location.protocol + "//" + location.host + "/api/v1";
                     }
                 }
+
+
+                var productManager = this.$productManager = new ProductManager();
+                var designConfigurationManager = new DesignConfigurationManager();
+                var textConfigurationManager = new TextConfigurationManager();
+
+                bus.setUp(productManager);
+                bus.setUp(designConfigurationManager);
+                bus.setUp(textConfigurationManager);
+
+
+                injection.addInstance(productManager);
+                injection.addInstance(designConfigurationManager);
+                injection.addInstance(textConfigurationManager);
+
 
                 api.set({
                     apiKey: parameter.apiKey,

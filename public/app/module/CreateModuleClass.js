@@ -1,4 +1,4 @@
-define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "flow"], function(ModuleBase, DataSource, Product, flow) {
+define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "flow", "sprd/manager/ProductManager"], function(ModuleBase, DataSource, Product, flow, ProductManager) {
     return ModuleBase.inherit('app.module.CreateClass', {
 
         defaults: {
@@ -8,7 +8,8 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
         },
 
         inject: {
-            api: DataSource
+            api: DataSource,
+            productManager: ProductManager
         },
 
         designs: function () {
@@ -82,9 +83,10 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
                 var dataItem = e.target.find('$dataItem');
                 if (dataItem) {
                     var design = dataItem.$.data;
-                    design && product.addDesign({
+
+                    design && this.$.productManager.addDesign(product, {
                         design: design
-                    }, function(err) {
+                    }, function (err) {
                         if (err) {
                             // TODO: notify user
                             console.log(err + err.stack);
