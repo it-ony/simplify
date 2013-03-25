@@ -15,6 +15,7 @@
 
         <coreData:LocalStorage/>
 
+        <data:ImageUploadService cid="imageUploadService"/>
         <data:ImageService endPoint="//image.spreadshirt.net/image-server/v1"/>
         <!--<analytics:PageTracker account="UA-24747471-9" cid="tracking"/>-->
         <js:I18n cid="i18n" path="app/locale" locale="en" loadMomentJs="false"/>
