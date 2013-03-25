@@ -26,10 +26,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "flow", 'sprd/model/Shop'
 
         designs: function(){
 
-            if(this.$.designs){
-                return this.$.designs.createQueryCollection({
-                });
-            }
+            return this.$.designs;
 
         }.onChange('designs'),
 

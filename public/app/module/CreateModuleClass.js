@@ -14,12 +14,7 @@ define(['app/module/ModuleBase', "js/data/DataSource", "sprd/model/Product", "fl
 
         designs: function () {
 
-            if (this.$.designs) {
-                return this.$.designs.createQueryCollection({
-                });
-            }
-
-            return null;
+            return this.$.designs;
 
         }.onChange('designs'),
 
